@@ -1,6 +1,6 @@
-# User：【输入身份证/密码登陆】
+# User【输入身份证/密码登陆】:
 
-Identity身份证号----唯一标识符
+id身份证号----唯一标识符
 
 mobile手机号
 
@@ -34,7 +34,7 @@ admin超级管理员
 
  
 
-# seat：座位
+# Seat座位:
 
 number座位号
 
@@ -48,7 +48,7 @@ state状态：空余/未结账/已结账
 
  
 
-# dish菜谱：
+# Dish菜谱：
 
 id唯一标识符
 
@@ -64,7 +64,7 @@ type种类【汤类/炒菜/酒水/其他】
 
  
 
-# customer：会员管理
+# Customer会员管理:
 
 mobile手机号
 
@@ -76,7 +76,7 @@ score积分
 
  
 
-# order：订单
+# Order订单:
 
 id唯一标识符
 
@@ -96,7 +96,7 @@ operatorId操作员
 
  
 
-# orderMenu：订单和菜谱之间的关系【多对多】
+# OrderMenu订单和菜谱之间的关系【多对多】:
 
 orderId dishId 
 
@@ -108,7 +108,7 @@ comment备注
 
  
 
-# stock：进货信息
+# Stock进货信息:
 
 name商品名称
 
@@ -134,9 +134,9 @@ comment备注
 
  
 
-# supplier：供货商
+# Supplier供货商:
 
- name
+name
 
 address
 
@@ -154,7 +154,7 @@ mainProduct主要产品
 
  
 
-# wareHouse：仓库管理
+# WareHouse仓库管理:
 
 supplierName供货商
 
@@ -166,7 +166,7 @@ number数量
 
  
 
-# overdue：过期的
+# Overdue过期的:
 
 supplierName供货商
 
