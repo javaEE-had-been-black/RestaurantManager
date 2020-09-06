@@ -10,8 +10,6 @@ sex
 
 password
 
-name姓名
-
 position职位
 
 personnel人事管理权限
