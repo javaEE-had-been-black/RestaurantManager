@@ -2,11 +2,7 @@
 
 id身份证号----唯一标识符
 
-mobile手机号
-
 username
-
-sex
 
 password
 
@@ -16,17 +12,9 @@ personnel人事管理权限
 
 statistics报表统计权限
 
-warehouse仓库管理权限
+setVip会员管理
 
-supplier供应商管理权限
-
-customer顾客管理
-
-seat座位管理
-
-
-
-admin超级管理员
+setSeat座位管理
 
  
 
