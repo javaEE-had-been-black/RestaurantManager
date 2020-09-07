@@ -159,7 +159,7 @@ public class RequestBean {
     }
     public String getSeatStatus(String seatId){
         try{
-            return em.createNamedQuery("getSeatStatus")
+            return (String) em.createNamedQuery("getSeatStatus")
                     .setParameter("seatId",seatId)
                     .getSingleResult();
         }catch(Exception e){
