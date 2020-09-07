@@ -29,7 +29,7 @@ public class RequestBean {
     };
     public void createSeat(String seatId,
                     String capacity,
-                    String state,
+                    String status,
                     boolean isPrivate){
 
     }
@@ -90,7 +90,7 @@ public class RequestBean {
     public List<Seat> getAllPrivateSeats(){
         //获得所有包间
     }
-    public String getSeatState(Seat seat){
+    public String getSeatStatus(Seat seat){
 
     }
     /**
