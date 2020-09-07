@@ -1,7 +1,6 @@
 package ejb;
 
-import entity.Customer;
-import entity.Dish;
+import entity.*;
 
 import javax.ejb.EJBException;
 import javax.ejb.Stateful;
