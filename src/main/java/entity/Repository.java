@@ -3,5 +3,5 @@ package entity;
 /**
  * @author zhang
  */
-public class WareHouse {
+public class Repository {
 }
