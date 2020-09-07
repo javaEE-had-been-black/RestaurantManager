@@ -118,72 +118,178 @@ public class RequestBean {
      * User
      */
     public User getUser(String userId){
-
+        try{
+            return (User) em.createNamedQuery("getUser")
+                    .setParameter("userId",userId)
+                    .getSingleResult();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
     public String searchUserIdbytel(String telNumber){
-
+        try{
+            return (String)em.createNamedQuery("searchUserIdbytel")
+                    .setParameter("telNumber",telNumber)
+                    .getSingleResult();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
+
     /**
      * Seat
      */
     public List<Seat> getSeatsbyCapacity(String capacity){
-
+        try{
+            return em.createNamedQuery("getSeatsbyCapacity")
+                    .setParameter("capacity",capacity)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
     public List<Seat> getAllPrivateSeats(){
         //获得所有包间
+        try{
+            return em.createNamedQuery("getAllPrivateSeats")
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
-    public String getSeatStatus(Seat seat){
+    public String getSeatStatus(String seatId){
+        try{
+            return em.createNamedQuery("getSeatStatus")
+                    .setParameter("seatId",seatId)
+                    .getSingleResult();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
 
-    }
     /**
      * Dish
      */
     public List<Dish> getDishbyType(String type){
-
+        try{
+            return em.createNamedQuery("getDishbyType")
+                    .setParameter("type",type)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
+
     /**
      * Order
      */
     public List<Order> getOrderbyTime(Date startTime,Date endTime){
-
+        try{
+            return em.createNamedQuery("getOrderbyTime")
+                    .setParameter("startTime",startTime)
+                    .setParameter("endTime",endTime)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
+
     /**
      * Dish_in_Order
      */
     public List<String> getDishsbyOrder(Integer orderId){
-
+        try{
+            return em.createNamedQuery("getDishsbyOrder")
+                    .setParameter("orderId",orderId)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
     public List<String> getOrdersbyDish(String dishId){
-
+        try{
+            return em.createNamedQuery("getOrderbyDish")
+                    .setParameter("dishId",dishId)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
+
     /**
      * Customer
      */
-    public void addPoints(Customer customer,Integer points){
-
+    public void addPoints(Integer customerId,Integer points){
+        try{
+            em.createNamedQuery("addPoints")
+                    .setParameter("customerId",customerId)
+                    .setParameter("points",points);
+        }catch(Exception e)
+        {
+            throw new EJBException(e.getMessage());
+        }
     }
-    public void usePoints(Customer customer,Integer points){
-
+    public void usePoints(Integer customerId,Integer points){
+        try{
+            em.createNamedQuery("usePoints")
+                    .setParameter("customerId",customerId)
+                    .setParameter("points",points);
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
-    public List<Customer> getCustomerbyname(String customerName){
-
+    public List<Customer> getCustomerbyName(String customerName){
+        try{
+            return em.createNamedQuery("getCustomerbyName")
+                    .setParameter("customername",customerName)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
+
     /**
      * bill
      */
     public List<Bill> getBillbyDate(Date startTime,Date endTime){
-
+        try{
+            return em.createNamedQuery("getBillbyDate")
+                    .setParameter("startTime",startTime)
+                    .setParameter("endTime",endTime)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
     public List<Bill> getBillbyType(boolean type){
-
+        try{
+            return em.createNamedQuery("getBillbyType")
+                    .setParameter("type",type)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
     public Bill getBillbyId(Integer itemId){
-
+        try{
+            return (Bill) em.createNamedQuery("getBillbyId")
+                    .setParameter("itemId",itemId)
+                    .getSingleResult();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
+
     /**
      * Repository
      */
     public List<Repository> getItemsbyName(String itemName){
-
+        try{
+            return em.createNamedQuery("getItemsbyName")
+                    .setParameter("itemName",itemName)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
     }
 }
