@@ -16,9 +16,13 @@ import java.io.Serializable;
                 name = "getSeatsbyCapacity",
                 query = "SELECT s FROM Seat s WHERE s.capacity=:capacity"
         ),
-                @NamedQuery(
+        @NamedQuery(
                 name = "getAllPrivateSeats",
                 query = "SELECT s FROM Seat s WHERE s.private=true"
+        ),
+        @NamedQuery(
+                name="getSeatStatus",
+                query = "select s.status FROM Seat s WHERE s.seatId=:seatId"
         )}
 )
 public class Seat implements Serializable {

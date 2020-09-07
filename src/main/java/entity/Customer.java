@@ -13,11 +13,11 @@ import java.io.Serializable;
 @NamedQueries({
         @NamedQuery(
                 name="addPoints",
-                query = "UPDATE Customer c SET c.points=c.points+:points WHERE c.customerId=:customerid"
+                query = "UPDATE Customer c SET c.points=c.points+:points WHERE c.customerId=:customerId"
         ),
         @NamedQuery(
-                name="usePoint",
-                query="UPDATE Customer c SET c.points=c.points-:points WHERE c.customerId=:customerid"
+                name="usePoints",
+                query="UPDATE Customer c SET c.points=c.points-:points WHERE c.customerId=:customerId"
         ),
         @NamedQuery(
                 name="getCustomerbyName",
