@@ -13,11 +13,11 @@ import java.io.Serializable;
 @Entity
 @NamedQueries({
         @NamedQuery(
-                name = "getDishbyOrder",
+                name = "getDishsbyOrder",
                 query = "SELECT do FROM DishinOrder do WHERE do.orderId=:orderId"
         ),
         @NamedQuery(
-                name = "getOrderbyDish",
+                name = "getOrdersbyDish",
                 query = "SELECT do FROM DishinOrder do WHERE do.dishId=:dishId"
         )
 })

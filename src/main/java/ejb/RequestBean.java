@@ -128,7 +128,7 @@ public class RequestBean {
     }
     public String searchUserIdbytel(String telNumber){
         try{
-            return (String)em.createNamedQuery("searchUserIdbytel")
+            return (String)em.createNamedQuery("searchUserIdbyTel")
                     .setParameter("telNumber",telNumber)
                     .getSingleResult();
         }catch(Exception e){
@@ -208,7 +208,7 @@ public class RequestBean {
     }
     public List<String> getOrdersbyDish(String dishId){
         try{
-            return em.createNamedQuery("getOrderbyDish")
+            return em.createNamedQuery("getOrdersbyDish")
                     .setParameter("dishId",dishId)
                     .getResultList();
         }catch(Exception e){
@@ -241,7 +241,7 @@ public class RequestBean {
     public List<Customer> getCustomerbyName(String customerName){
         try{
             return em.createNamedQuery("getCustomerbyName")
-                    .setParameter("customername",customerName)
+                    .setParameter("customerName",customerName)
                     .getResultList();
         }catch(Exception e){
             throw new EJBException(e.getMessage());

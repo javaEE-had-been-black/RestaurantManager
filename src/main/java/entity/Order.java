@@ -14,7 +14,7 @@ import java.util.Date;
 @NamedQueries(
         {@NamedQuery(
                 name = "getOrderbyTime",
-                query = "SELECT o FROM Order o WHERE o.startTime>:startTime and o.endTime<:entTime "
+                query = "SELECT o FROM Order o WHERE o.startTime>:startTime and o.endTime<:endTime "
         ), @NamedQuery(
                 name = "getOrderbyId",
                 query = "SELECT o FROM Order o WHERE o.orderId=:orderId"

@@ -13,7 +13,7 @@ import java.io.Serializable;
 @Entity
 @NamedQueries(
         {@NamedQuery(
-                name = "getSeatbyCapacity",
+                name = "getSeatsbyCapacity",
                 query = "SELECT s FROM Seat s WHERE s.capacity=:capacity"
         ),
                 @NamedQuery(
