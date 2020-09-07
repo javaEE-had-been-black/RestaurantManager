@@ -1,15 +1,13 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * @author zhang
  */
 @Entity
+@Table(name = "customer")
 @NamedQueries({
         @NamedQuery(
                 name="addPoints",
@@ -32,6 +30,7 @@ public class Customer implements Serializable{
     private Integer points;
 
     public Customer(String telNumber, String customerName) {
+
         this.telNumber = telNumber;
         this.customerName = customerName;
         this.points = 0;
@@ -70,6 +69,7 @@ public class Customer implements Serializable{
     }
 
     @Id
+    @GeneratedValue(strategy=GenerationType.AUTO)
     public Integer getCustomerId() {
         return customerId;
     }

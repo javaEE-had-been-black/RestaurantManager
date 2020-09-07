@@ -87,6 +87,7 @@ public class RequestBean {
                                String customerName){
         try{
             Customer customer = new Customer(telNumber,customerName);
+            em.persist(customer);
         }catch(Exception e){
             throw new EJBException(e.getMessage());
         }
