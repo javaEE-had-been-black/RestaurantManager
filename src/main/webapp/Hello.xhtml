@@ -3,7 +3,6 @@
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
-      xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
@@ -13,6 +12,19 @@
     <h:outputStylesheet library="css" name="Hello.css"/>
 </h:head>
 <body>
+    <div id="loginDiv">
+        <h:form id="form">
+            <h1 style="text-align: center;color:aliceblue">LOGIN</h1>
+            <p>User Name:<h:inputText id="userNname" type="text"/>
+                <label id="name_trip"></label>
+            </p>
 
+            <p>Password:  <h:inputText id="password" type="password"/>
+                <label id="password_trip"></label></p>
+
+            <div style="text-align: center;margin-top: 30px;"></div>
+            <h:commandButton class="button" value="login"/>
+        </h:form>
+    </div>
 </body>
 </html>
