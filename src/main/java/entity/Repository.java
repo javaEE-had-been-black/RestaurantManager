@@ -2,13 +2,18 @@ package entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import java.io.Serializable;
 
 /**
  * @author zhang
  */
 @Entity
-public class Repository implements Serializable{
+@NamedQuery(
+        name = "getItemsbyName",
+        query = "SELECT r FROM Repository r WHERE r.itemName=:itemName"
+)
+public class Repository implements Serializable {
 
     private Integer itemId;
     private String itemName;
