@@ -102,7 +102,7 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-    public void createRepository(String itemId,
+    public void createRepository(Integer itemId,
                                  String itemName,
                                  String quantity,
                                  String type){
