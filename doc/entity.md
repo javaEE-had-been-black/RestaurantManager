@@ -1,94 +1,74 @@
 # User【输入身份证/密码登陆】:
 
-id身份证号----唯一标识符
+userId身份证号----唯一标识符
 
-username
+telNumber手机号
+
+userName
 
 password
 
-position职位
-
-personnel人事管理权限
-
-statistics报表统计权限
-
-setVip会员管理
-
-setSeat座位管理
-
+position职位【老板、经理、管理员】
  
-
- 
-
 # Seat座位:
 
-number座位号
+seatId座位号
 
-type型号【人数】
+capacity人数
 
-comment备注
+state状态【空、预留、未完成、外卖】
 
-state状态：空余/未结账/已结账
+# Menu菜谱：
 
- 
+dishId唯一标识符
 
- 
+dishName
 
-# Dish菜谱：
+dishPrice价格
 
-id唯一标识符
-
-name
-
-price价格
-
-image图片
+imageUrl
 
 type种类【汤类/炒菜/酒水/其他】
 
- 
+quantity剩余数量
 
- 
+# Customer管理:
 
-# Customer会员管理:
+customerId
 
-mobile手机号
+telNumber
 
-name姓名
+customerName姓名
 
 score积分
 
- 
-
- 
-
 # Order订单:
 
-id唯一标识符
+orderId唯一标识符
 
-seat桌号
+seatId桌号【外键】
 
-time时间
+userId【外键】
 
-number人数
+startTime开始时间
 
-price 总价
+endTime结束时间
 
-comment备注
-
-operatorId操作员
-
- 
-
- 
-
-# OrderMenu订单和菜谱之间的关系【多对多】:
-
-orderId dishId 
-
-count 
+orderPrice 总价
 
 comment备注
+
+userId操作员
+
+discount
+
+# Dish_in_Order订单和菜谱之间的关系【多对多】:
+
+orderId
+
+dishId 
+
+
 
 
 
