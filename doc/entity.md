@@ -6,6 +6,8 @@ telNumber手机号
 
 userName
 
+salary薪水
+
 password
 
 position职位【老板、经理、管理员】
@@ -61,6 +63,16 @@ comment备注
 userId操作员
 
 discount
+
+# financialSheet
+
+sheetId
+
+sheetDate日期
+
+type类型【支出收入】
+
+amount数额
 
 # Dish_in_Order订单和菜谱之间的关系【多对多】:
 
