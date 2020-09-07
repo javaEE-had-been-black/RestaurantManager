@@ -13,7 +13,7 @@ import java.io.Serializable;
                 query = "SELECT u FROM User u WHERE u.userId=:userId"
         ),
         @NamedQuery(
-                name="searchIdbyTel",
+                name="searchUserIdbyTel",
                 query = "SELECT u FROM User u WHERE u.telNumber=:telNumber"
         )
 })

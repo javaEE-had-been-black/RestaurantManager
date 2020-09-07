@@ -2,17 +2,25 @@ package entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Table;
-import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import java.io.Serializable;
-import java.util.List;
 
 /**
  * @author zhang
  */
 
 @Entity
-
+@NamedQueries({
+        @NamedQuery(
+                name = "getDishbyOrder",
+                query = "SELECT do FROM DishinOrder do WHERE do.orderId=:orderId"
+        ),
+        @NamedQuery(
+                name = "getOrderbyDish",
+                query = "SELECT do FROM DishinOrder do WHERE do.dishId=:dishId"
+        )
+})
 public class DishinOrder implements Serializable{
     private String dishId;
     private String orderId;
@@ -41,11 +49,5 @@ public class DishinOrder implements Serializable{
 
     public void setOrderId(String orderId) {
         this.orderId = orderId;
-    }
-    public List<String> getDishbyOrder(Integer orderId){
-        return null;
-    }
-    public List<String> getOrderbyDish(String dishId){
-        return null;
     }
 }

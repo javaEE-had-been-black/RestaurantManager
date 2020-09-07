@@ -1,10 +1,8 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Temporal;
+import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 import static javax.persistence.TemporalType.TIMESTAMP;
 
@@ -12,6 +10,20 @@ import static javax.persistence.TemporalType.TIMESTAMP;
  * @author zhang
  */
 @Entity
+@NamedQueries({
+        @NamedQuery(
+                name="getBillbyDate",
+                query = "SELECT b FROM Bill b WHERE b.itemData>:startTime and b.itemData<:endTime"
+        ),
+        @NamedQuery(
+                name="getBillbyType",
+                query = "SELECT b FROM Bill b WHERE b.type=:type"
+        ),
+        @NamedQuery(
+                name="getBillbyId",
+                query = "SELECT b FROM Bill b WHERE b.itemId=:itemId"
+        )
+})
 public class Bill implements Serializable {
     private Integer itemId;
     private Date itemData;

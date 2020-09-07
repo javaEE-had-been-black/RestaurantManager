@@ -2,7 +2,6 @@ package entity;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import java.io.Serializable;
 
@@ -11,7 +10,7 @@ import java.io.Serializable;
  */
 @Entity
 @NamedQuery(
-        name="getDishbytype",
+        name="getDishbyType",
         query = "SELECT d FROM Dish d WHERE d.type=:type"
 )
 
