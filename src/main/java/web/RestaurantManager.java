@@ -1,14 +1,15 @@
 package web;
 
 import ejb.RequestBean;
-import entity.Repository;
-import entity.Seat;
+import entity.*;
 
 import javax.ejb.EJB;
+import javax.ejb.EJBException;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -30,6 +31,18 @@ public class RestaurantManager implements Serializable {
      * Seat
      */
 
+    public void createSeat(String seatId,
+                           String capacity,
+                           String status,
+                           boolean isPrivate) {
+        try {
+            request.createSeat(seatId, capacity, status, isPrivate);
+        } catch (Exception e) {
+            logger.warning("creat seat failed ,info is\n" + e.getMessage());
+            throw e;
+        }
+    }
+
     /**
      * @param capacity 座位可容纳的人数
      * @return 一个包含所有符合条件的座位的列表
@@ -43,19 +56,46 @@ public class RestaurantManager implements Serializable {
         }
     }
 
+    public List<Seat> getAllPrivateSeats() {
+        //获得所有包厢
+        try {
+            return request.getAllPrivateSeats();
+        } catch (Exception e) {
+            logger.warning("get all private seats failed,info is \n" + e.getMessage());
+            throw e;
+        }
+    }
+
+    public String getSeatStatus(String seatId) {
+        try {
+            return request.getSeatStatus(seatId);
+        } catch (Exception e) {
+            logger.warning("get sear status failed ,info is\n" + e.getMessage());
+            throw e;
+        }
+    }
+
     /*
       User
      */
+
+    public User getUser(String userId) {
+        try {
+            return request.getUser(userId);
+        } catch (EJBException e) {
+            throw e;
+        }
+    }
 
     /**
      * 添加user
      */
     public void createUser(String userId,
-                        String userName,
-                        String password,
-                        String position,
-                        String telNumber,
-                        String salary) {
+                           String userName,
+                           String password,
+                           String position,
+                           String telNumber,
+                           String salary) {
         try {
             request.createUser(userId, userName, password, position, telNumber, salary);
         } catch (Exception e) {
@@ -73,12 +113,11 @@ public class RestaurantManager implements Serializable {
     }
 
     /**
-     *
      * @param telNumber 电话号码
      * @return 是否运行登录
      */
-    public boolean checkUser(String telNumber,String password){
-        if("10086".equals(telNumber) && "123456".equals(password)){
+    public boolean checkUser(String telNumber, String password) {
+        if ("10086".equals(telNumber) && "123456".equals(password)) {
             return true;
         }
         return false;
@@ -102,23 +141,111 @@ public class RestaurantManager implements Serializable {
             throw e;
         }
     }
+
     /**
      * Order
      */
+    public List<Order> getOrderbyTime(Date startTime, Date endTime) {
+        try {
+            return request.getOrderbyTime(startTime, endTime);
+        } catch (EJBException e) {
+            throw e;
+        }
+    }
 
     /**
      * Dish
      */
+    public List<Dish> getDishbyType(String type) {
+        try {
+            return request.getDishbyType(type);
+        } catch (EJBException e) {
+            throw e;
+        }
+    }
 
     /**
      * DishinOrder
      */
 
+    public List<String> getDishsbyOrder(Integer orderId) {
+        try {
+            return request.getDishsbyOrder(orderId);
+        } catch (EJBException e) {
+            throw e;
+        }
+    }
+
+    public List<String> getOrdersbyDish(String dishId) {
+        try {
+            return request.getOrdersbyDish(dishId);
+        } catch (EJBException e) {
+            throw e;
+        }
+    }
+
     /**
      * Customer
      */
+    public void addPoints(Integer customerId, Integer points) {
+        try {
+            request.addPoints(customerId, points);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public void usePoints(Integer customerId, Integer points) {
+        try {
+            request.usePoints(customerId, points);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public List<Customer> getCustomerbyName(String customerName) {
+        try {
+            return request.getCustomerbyName(customerName);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 
     /**
-     * Bill
+     * bill
      */
+    public List<Bill> getBillbyDate(Date startTime, Date endTime) {
+        try {
+            return request.getBillbyDate(startTime, endTime);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public List<Bill> getBillbyType(boolean type) {
+        try {
+            return request.getBillbyType(type);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public Bill getBillbyId(Integer itemId) {
+        try {
+            return request.getBillbyId(itemId);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    /**
+     * Repository
+     */
+    public List<Repository> getItemsbyName(String itemName) {
+        try {
+            return request.getItemsbyName(itemName);
+        } catch (Exception e) {
+            throw e;
+        }
+    }
 }
