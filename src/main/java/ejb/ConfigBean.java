@@ -17,12 +17,9 @@ public class ConfigBean {
 
     @PostConstruct
     public void createData(){
-        request.createCustomer("18279","hanhan");
-        request.createUser("1111","zcy","dfdff","wt","234444","0000");
     }
 
     @PreDestroy
     public void deleteData(){
-
     }
 }

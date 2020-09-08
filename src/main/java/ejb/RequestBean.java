@@ -6,9 +6,10 @@ import javax.ejb.EJBException;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -18,7 +19,7 @@ import java.util.List;
 public class RequestBean {
     @PersistenceContext
     private EntityManager em;
-
+    private static final Logger logger = Logger.getLogger("java.ejb.RequestBean");
     /**
     *  Creator
     */
@@ -30,7 +31,10 @@ public class RequestBean {
                            String salary){
         try{
             User user = new User(userId,userName,password,position,telNumber,salary);
+            logger.log(Level.INFO,"Create user!!!!!!!!!!!",new Object[]{userName,password});
             em.persist(user);
+            logger.log(Level.INFO,"Persisted user!!!!!",new Object[]{userName,password});
+
         }catch(Exception e){
             throw new EJBException(e.getMessage());
         }
@@ -42,6 +46,7 @@ public class RequestBean {
         try{
             Seat seat = new Seat(seatId,capacity,status,isPrivate);
             em.persist(seat);
+
         }catch(Exception e){
             throw new EJBException(e.getMessage());
         }

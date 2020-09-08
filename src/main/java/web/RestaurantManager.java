@@ -5,6 +5,7 @@ import entity.Repository;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
@@ -15,6 +16,7 @@ import java.util.logging.Logger;
  */
 @Named
 @SessionScoped
+@FacesConfig(version = FacesConfig.Version.JSF_2_3)
 public class RestaurantManager implements Serializable {
     @EJB
     private RequestBean request;
@@ -32,13 +34,8 @@ public class RestaurantManager implements Serializable {
     /**
      * 添加user
      */
-    public void addUser(String userId,
-                        String userName,
-                        String password,
-                        String position,
-                        String telNumber,
-                        String salary) {
-        request.createUser(userId, userName, password, position, telNumber, salary);
+    public void addUser() {
+        request.createUser("1111","zcy","dfdff","wt","234444","0000");
     }
 
     /**
