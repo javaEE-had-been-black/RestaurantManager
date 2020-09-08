@@ -17,7 +17,7 @@ import java.util.List;
                         query = "SELECT o FROM Order o WHERE o.startTime>:startTime and o.endTime<:endTime "
                 ),
                 @NamedQuery(
-                        name = "getOrderbyId",
+                        name = "getOrderbyOrderId",
                         query = "SELECT o FROM Order o WHERE o.orderId=:orderId"
                 ),
                 @NamedQuery(

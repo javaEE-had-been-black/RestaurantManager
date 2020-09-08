@@ -259,7 +259,14 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-
+    public Order getOrderbyOrderId(Integer orderId){
+        try{
+            return (Order) em.createNamedQuery("getOrderbyOrderId")
+                    .getSingleResult();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     /**
      * Customer
      */
