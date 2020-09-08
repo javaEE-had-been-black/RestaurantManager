@@ -5,7 +5,9 @@
 ## 说明
 - [需求文档](/doc/需求文档.pdf)
 ### database
-- [ER图](doc/ERDiagram.png)
+- ER图
+
+- ![ER图](doc/ERDiagram.png)
 - [数据库说明](/doc/entity.md)
 - [数据库接口](/doc/数据库接口.md)
 ## 日志
