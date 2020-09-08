@@ -295,4 +295,12 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
+    public List<Repository> getAllItems(){
+        try {
+            return em.createNamedQuery("getAllItems")
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
 }
