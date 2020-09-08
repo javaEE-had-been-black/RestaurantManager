@@ -27,7 +27,7 @@ import java.util.Date;
                 query = "SELECT c FROM Customer c"
         ),
         @NamedQuery(
-                name = "getCustomerbyDate",
+                name = "getCustomersbyDate",
                 query = "SELECT c FROM Customer c WHERE c.addTime>:startTime and c.addTime<:endTime"
         )
 })

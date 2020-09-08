@@ -298,7 +298,24 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-
+    public List<Customer> getAllCustomers(){
+        try{
+            return em.createNamedQuery("getAllCustomers")
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
+    public List<Customer> getCustomersbyDate(Date startTime,Date endTime){
+        try{
+            return em.createNamedQuery("getCustomersbyDate")
+                    .setParameter("startTime",startTime)
+                    .setParameter("endTime",endTime)
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     /**
      * bill
      */
@@ -330,7 +347,14 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-
+    public List<Bill> getAllBills(){
+        try{
+            return em.createNamedQuery("getAllBills")
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     /**
      * Repository
      */
