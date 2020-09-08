@@ -75,10 +75,13 @@ public class RestaurantManager implements Serializable {
     /**
      *
      * @param telNumber 电话号码
-     * @return 用户是否注册
+     * @return 是否运行登录
      */
-    public boolean checkUser(String telNumber){
-        return true;
+    public boolean checkUser(String telNumber,String password){
+        if("10086".equals(telNumber) && "123456".equals(password)){
+            return true;
+        }
+        return false;
     }
     //获取密码(拥有账号)
 
