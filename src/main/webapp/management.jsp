@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link rel="stylesheet" type="text/css" href="resources/css/management.css" />
 <html>
 <head>
     <title>manage</title>
@@ -37,18 +38,21 @@
                 </select>
 
                 <inputText id="searchKey" type="text"/>
-
                 <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索" />
             </form>
         </div>
 
         <div class="seats-container">
 
-
+                <% for(int i=0;i<9;i++){
+                //这里循环显示桌子【小图片和状态以及桌号】
+                %>
                 <div class="seat-container">
                     <img src="resources/images/seat.jpg" style="width: 50px;height: 50px" alt="座位"/><br/>
+<%--                    <p><%=state%></p>--%>
+<%--                    <p><%=number%></p>--%>
                 </div>
-
+                <% } %>
         </div>
 
     </div>
