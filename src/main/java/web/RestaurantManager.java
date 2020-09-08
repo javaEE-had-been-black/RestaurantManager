@@ -81,6 +81,10 @@ public class RestaurantManager implements Serializable {
       User
      */
 
+    public boolean hasUser(String userId) {
+        return request.getUserbyUserId(userId) != null;
+    }
+
     public User getUser(String userId) {
         try {
             return request.getUserbyUserId(userId);
@@ -115,20 +119,18 @@ public class RestaurantManager implements Serializable {
     }
 
     /**
-     * @param telNumber 电话号码
+     * @param userId
      * @return 是否运行登录
      */
-    public boolean checkUser(String telNumber, String password) {
-        if ("10086".equals(telNumber) && "123456".equals(password)) {
-            return true;
-        }
-        return false;
+    public boolean login(String userId, String password) {
+        return password.equals(request.getUserbyUserId(userId).getPassword());
     }
     //获取user信息
 
     /*
      * Repository
      */
+
     /**
      * 获取仓库所有item实体
      *
