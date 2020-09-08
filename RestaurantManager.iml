@@ -20,7 +20,6 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
-          <factory-entry name="default" />
           <factory-entry name="myapp" />
         </datasource-mapping>
         <naming-strategy-map />

@@ -64,23 +64,14 @@ public class RequestBean {
                             String orderPrice,
                             Integer discount,
                             String comment,
-                            String seatId,
-                            String userId,
-                            String customerId){
+                            Seat seat,
+                            User user,
+                            Customer customer){
         try{
             Order order = new Order(orderId,startTime,endTime,orderPrice,discount,
-                                    comment,seatId,userId,customerId
+                                    comment,seat,user,customer
                                     );
             em.persist(order);
-        }catch(Exception e){
-            throw new EJBException(e.getMessage());
-        }
-    }
-    public void createDishinOrder(String dishId,
-                                  String orderId){
-        try{
-            DishinOrder dishinOrder = new DishinOrder(dishId,orderId);
-            em.persist(dishinOrder);
         }catch(Exception e){
             throw new EJBException(e.getMessage());
         }
@@ -202,7 +193,7 @@ public class RequestBean {
      */
     public List<String> getDishsbyOrder(Integer orderId){
         try{
-            return em.createNamedQuery("getDishsbyOrder")
+            return em.createNamedQuery("getDishesbyOrder")
                     .setParameter("orderId",orderId)
                     .getResultList();
         }catch(Exception e){

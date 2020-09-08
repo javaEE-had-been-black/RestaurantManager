@@ -7,6 +7,7 @@ import java.io.Serializable;
  * @author zhang
  */
 @Entity
+@Table(name = "RESTAURANT_USER")
 @NamedQueries({
         @NamedQuery(
                 name="getUser",

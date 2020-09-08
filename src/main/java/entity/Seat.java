@@ -1,9 +1,6 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -11,6 +8,7 @@ import java.io.Serializable;
  */
 
 @Entity
+@Table(name = "RESTAURANT_SEAT")
 @NamedQueries(
         {@NamedQuery(
                 name = "getSeatsbyCapacity",

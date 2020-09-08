@@ -1,25 +1,42 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * @author zhang
  */
 @Entity
-@NamedQuery(
-        name="getDishbyType",
-        query = "SELECT d FROM Dish d WHERE d.type=:type"
-)
+@Table(name = "RESTAURANT_DISH")
+@NamedQueries({
+        @NamedQuery(
+                name="getDishbyType",
+                query = "SELECT d FROM Dish d WHERE d.type=:type"
+        ),
+        @NamedQuery(
+                name="getOrdersbyDish",
+                query = "SELECT d.orders FROM Dish d WHERE d.dishId=:dishId"
+        )
+})
+
 
 public class Dish implements Serializable{
     private String dishId;
-    String dishName;
-    String dishPrice;
-    String imageUrl;
-    String type;
+    private String dishName;
+    private String dishPrice;
+    private String imageUrl;
+    private String type;
+    private List<Order>orders;
+
+    @ManyToMany(mappedBy = "dishes")
+    public List<Order> getOrders() {
+        return orders;
+    }
+
+    public void setOrders(List<Order> orders) {
+        this.orders = orders;
+    }
 
     public Dish() {
     }

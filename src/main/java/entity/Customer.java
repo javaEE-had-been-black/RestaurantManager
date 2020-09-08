@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author zhang
  */
 @Entity
-@Table(name = "customer")
+@Table(name = "RESTAURANT_CUSTOMER")
 @NamedQueries({
         @NamedQuery(
                 name="addPoints",
@@ -23,14 +23,12 @@ import java.io.Serializable;
         )
 })
 public class Customer implements Serializable{
-
     private Integer customerId;
     private String telNumber;
     private String customerName;
     private Integer points;
 
     public Customer(String telNumber, String customerName) {
-
         this.telNumber = telNumber;
         this.customerName = customerName;
         this.points = 0;

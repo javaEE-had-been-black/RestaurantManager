@@ -1,23 +1,27 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author zhang
  */
 @Entity
+@Table(name = "RESTAURANT_ORDER")
 @NamedQueries(
         {@NamedQuery(
                 name = "getOrderbyTime",
                 query = "SELECT o FROM Order o WHERE o.startTime>:startTime and o.endTime<:endTime "
-        ), @NamedQuery(
+        ),
+        @NamedQuery(
                 name = "getOrderbyId",
                 query = "SELECT o FROM Order o WHERE o.orderId=:orderId"
+        ),
+        @NamedQuery(
+                name = "getDishesbyOrder",
+                query = "SELECT o.dishes FROM Order o WHERE o.orderId=:orderId"
         )
         }
 )
@@ -29,47 +33,72 @@ public class Order implements Serializable {
     private String orderPrice;
     private Integer discount;
     private String comment;
-    private String seatId;
-    private String userId;
-    private String customerId;
+    private String orderStatus;
+    private Seat seat;
+    private User user;
+    private Customer customer;
+    private List<Dish> dishes;
+
+    @ManyToMany()
+    @JoinTable(name = "RESTAURANT_DISHINORDER", joinColumns = @JoinColumn(name = "orderId", referencedColumnName = "orderid"),
+            inverseJoinColumns = @JoinColumn(name = "dishId", referencedColumnName = "dishId"))
+    public List<Dish> getDishes() {
+        return dishes;
+    }
+
+    public void setDishes(List<Dish> dishes) {
+        this.dishes = dishes;
+    }
 
     public Order() {
     }
 
-    public Order(Integer orderId, Date startTime, Date endTime, String orderPrice, Integer discount, String comment, String seatId, String userId, String customerId) {
+    public Order(Integer orderId, Date startTime, Date endTime, String orderPrice, Integer discount, String comment, Seat seat, User user, Customer customer) {
         this.orderId = orderId;
         this.startTime = startTime;
         this.endTime = endTime;
         this.orderPrice = orderPrice;
         this.discount = discount;
         this.comment = comment;
-        this.seatId = seatId;
-        this.userId = userId;
-        this.customerId = customerId;
+        this.seat = seat;
+        this.user = user;
+        this.customer = customer;
     }
 
-    public String getSeatId() {
-        return seatId;
+    @ManyToOne
+    @JoinColumn(
+            name = "seatId"
+    )
+    public Seat getSeat() {
+        return seat;
     }
 
-    public void setSeatId(String seatId) {
-        this.seatId = seatId;
+    public void setSeat(Seat seat) {
+        this.seat = seat;
     }
 
-    public String getUserId() {
-        return userId;
+    @ManyToOne
+    @JoinColumn(
+            name = "userId"
+    )
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public String getCustomerId() {
-        return customerId;
+    @ManyToOne
+    @JoinColumn(
+            name = "customerId"
+    )
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(String customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
 
@@ -113,12 +142,22 @@ public class Order implements Serializable {
         this.comment = comment;
     }
 
+    public String getOrderStatus() {
+        return orderStatus;
+    }
+
+    public void setOrderStatus(String orderStatus) {
+        this.orderStatus = orderStatus;
+    }
+
     public void setOrderId(Integer orderId) {
         this.orderId = orderId;
     }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getOrderId() {
         return orderId;
     }
+
 }

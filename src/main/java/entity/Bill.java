@@ -10,6 +10,7 @@ import static javax.persistence.TemporalType.TIMESTAMP;
  * @author zhang
  */
 @Entity
+@Table(name = "RESTAURANT_BILL")
 @NamedQueries({
         @NamedQuery(
                 name="getBillbyDate",

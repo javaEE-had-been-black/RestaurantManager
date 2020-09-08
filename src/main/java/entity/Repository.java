@@ -1,18 +1,28 @@
 package entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
  * @author zhang
  */
 @Entity
-@NamedQuery(
-        name = "getItemsbyName",
-        query = "SELECT r FROM Repository r WHERE r.itemName=:itemName"
+@Table(name = "RASTAURANT_REPOSITORY")
+@NamedQueries(
+        {
+                @NamedQuery(
+                        name = "getItemsbyName",
+                        query = "SELECT r FROM Repository r WHERE r.itemName=:itemName"
+                ),
+                @NamedQuery(
+                        name="getAllItems",
+                        query = "SELECT r FROM Repository r"
+                )
+
+        }
 )
+
+
 public class Repository implements Serializable {
 
     private Integer itemId;

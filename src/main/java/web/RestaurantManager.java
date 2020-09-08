@@ -15,7 +15,7 @@ import java.io.Serializable;
 public class RestaurantManager implements Serializable {
     @EJB
     private RequestBean request;
-    private Integer curr
+    private Integer curr;
     /**
      *  Seat
      */
