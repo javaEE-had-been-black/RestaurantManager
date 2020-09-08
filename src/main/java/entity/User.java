@@ -21,9 +21,9 @@ import java.io.Serializable;
                 name="getUserId",
                 query = "SELECT u.userId FROM User u WHERE u.userName=:userName"
         ),
-        @NamedQuery(
-                name=""
-        )
+//        @NamedQuery(
+//                name=""
+//        )
 })
 
 public class User implements Serializable {
