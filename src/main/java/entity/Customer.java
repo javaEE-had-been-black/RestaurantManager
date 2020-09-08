@@ -19,8 +19,16 @@ import java.util.Date;
                 query = "UPDATE Customer c SET c.points=c.points-:points WHERE c.customerId=:customerId"
         ),
         @NamedQuery(
-                name = "getCustomerbyName",
+                name = "getCustomerbyCustomerName",
                 query = "SELECT c FROM Customer c WHERE c.customerName=:customerName"
+        ),
+        @NamedQuery(
+                name = "getCustomerbyTelNumber",
+                query = "SELECT c FROM Customer c WHERE c.telNumber =:telNumber"
+        ),
+        @NamedQuery(
+                name="getCustomerbyCustomerId",
+                query = "SELECT c FROM Customer c WHERE c.customerId=:customerId"
         ),
         @NamedQuery(
                 name = "getAllCustomers",
