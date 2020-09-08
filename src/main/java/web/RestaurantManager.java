@@ -2,6 +2,7 @@ package web;
 
 import ejb.RequestBean;
 import entity.Repository;
+import entity.Seat;
 
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -21,11 +22,26 @@ public class RestaurantManager implements Serializable {
     @EJB
     private RequestBean request;
     private static final Logger logger = Logger.getLogger("web.RestaurantManager");
-    /**
-     * Seat
-     */
+
     private Integer currentOrder;
     private String currentDish;
+
+    /*
+     * Seat
+     */
+
+    /**
+     * @param capacity 座位可容纳的人数
+     * @return 一个包含所有符合条件的座位的列表
+     */
+    public List<Seat> getSeatsbyCapacity(String capacity) {
+        try {
+            return request.getSeatsbyCapacity(capacity);
+        } catch (Exception e) {
+            logger.warning("getSeatsbyCapacity failde" + e.getMessage());
+            throw e;
+        }
+    }
 
     /*
       User
@@ -34,8 +50,18 @@ public class RestaurantManager implements Serializable {
     /**
      * 添加user
      */
-    public void addUser() {
-        request.createUser("1111","zcy","dfdff","wt","234444","0000");
+    public void createUser(String userId,
+                        String userName,
+                        String password,
+                        String position,
+                        String telNumber,
+                        String salary) {
+        try {
+            request.createUser(userId, userName, password, position, telNumber, salary);
+        } catch (Exception e) {
+            logger.warning("Create User Failed,the reason is" + e.getMessage());
+            throw e;
+        }
     }
 
     /**
@@ -45,6 +71,15 @@ public class RestaurantManager implements Serializable {
     public void removeUser() {
 
     }
+
+    /**
+     *
+     * @param telNumber 电话号码
+     * @return 用户是否注册
+     */
+    public boolean checkUser(String telNumber){
+        return true;
+    }
     //获取密码(拥有账号)
 
     /*
@@ -53,10 +88,16 @@ public class RestaurantManager implements Serializable {
 
     /**
      * 获取仓库所有item实体
+     *
      * @return 仓库中所有实体的List
      */
-    public List<Repository> getAllItems(){
-        return request.getAllItems();
+    public List<Repository> getAllItems() {
+        try {
+            return request.getAllItems();
+        } catch (Exception e) {
+            logger.warning("Create User Failed,the reason is" + e.getMessage());
+            throw e;
+        }
     }
     /**
      * Order
