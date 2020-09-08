@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<link rel="stylesheet" type="text/css" href="resources/css/management.css" />
+<link rel="stylesheet" type="text/css" href="/resources/css/management.css" />
 <html>
 <head>
     <title>manage</title>

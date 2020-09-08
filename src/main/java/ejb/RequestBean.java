@@ -116,7 +116,8 @@ public class RequestBean {
     /**
      * User
      */
-    public User getUser(String userId){
+
+    public User getUserby(String userId){
         try{
             return (User) em.createNamedQuery("getUserbyUserId")
                     .setParameter("userId",userId)
