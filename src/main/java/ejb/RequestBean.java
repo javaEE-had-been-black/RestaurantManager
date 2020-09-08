@@ -6,8 +6,10 @@ import javax.ejb.EJBException;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
+
 
 /**
  * @author zhao chenyang
@@ -150,7 +152,7 @@ public class RequestBean {
         }
     }
     public List<Seat> getAllPrivateSeats(){
-        //获得所有包间
+        //获得所有包厢
         try{
             return em.createNamedQuery("getAllPrivateSeats")
                     .getResultList();
