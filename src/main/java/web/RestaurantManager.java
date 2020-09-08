@@ -206,14 +206,6 @@ public class RestaurantManager implements Serializable {
         }
     }
 
-    public List<Customer> getCustomerbyName(String customerName) {
-        try {
-            return request.getCustomerbyName(customerName);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
     /**
      * bill
      */
