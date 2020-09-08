@@ -19,7 +19,7 @@ import java.util.List;
                 query = "SELECT d FROM Dish d WHERE d.type=:type"
         ),
         @NamedQuery(
-                name = "getDishes",
+                name = "getAllDishes",
                 query = "SELECT d from Dish d"
         ),
         @NamedQuery(

@@ -83,7 +83,7 @@ public class RestaurantManager implements Serializable {
 
     public User getUser(String userId) {
         try {
-            return request.getUserby(userId);
+            return request.getUserbyUserId(userId);
         } catch (EJBException e) {
             throw e;
         }
@@ -157,9 +157,9 @@ public class RestaurantManager implements Serializable {
     /**
      * Dish
      */
-    public List<Dish> getDishbyType(String type) {
+    public List<Dish> getDishesbyType(String type) {
         try {
-            return request.getDishbyType(type);
+            return request.getDishesbyType(type);
         } catch (EJBException e) {
             throw e;
         }
@@ -171,7 +171,7 @@ public class RestaurantManager implements Serializable {
 
     public List<String> getDishsbyOrder(Integer orderId) {
         try {
-            return request.getDishsbyOrder(orderId);
+            return request.getDishesbyOrder(orderId);
         } catch (EJBException e) {
             throw e;
         }

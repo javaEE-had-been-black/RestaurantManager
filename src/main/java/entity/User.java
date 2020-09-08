@@ -14,7 +14,7 @@ import java.io.Serializable;
                 query = "SELECT u FROM User u WHERE u.userId=:userId"
         ),
         @NamedQuery(
-                name = "searchUserbyTel",
+                name = "getUserbyTel",
                 query = "SELECT u FROM User u WHERE u.telNumber=:telNumber"
         ),
         @NamedQuery(
@@ -26,9 +26,9 @@ import java.io.Serializable;
                 query = "SELECT u FROM User u WHERE u.userName=:userName"
         ),
         @NamedQuery(
-                name = "getUsers",
+                name = "getAllUsers",
                 query = "SELECT u FROM User u"
-        )
+        ),
 })
 
 public class User implements Serializable {

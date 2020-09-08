@@ -117,7 +117,7 @@ public class RequestBean {
      * User
      */
 
-    public User getUserby(String userId){
+    public User getUserbyUserId(String userId){
         try{
             return (User) em.createNamedQuery("getUserbyUserId")
                     .setParameter("userId",userId)
@@ -126,16 +126,41 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-    public User searchUserIdbytel(String telNumber){
+    public User getUserbyTel(String telNumber){
         try{
-            return (User)em.createNamedQuery("searchUserbyTel")
+            return (User) em.createNamedQuery("getUserbyTel")
                     .setParameter("telNumber",telNumber)
                     .getSingleResult();
         }catch(Exception e){
             throw new EJBException(e.getMessage());
         }
     }
-
+    public List<User> getUsersbyPosition(String position){
+        try{
+            return em.createNamedQuery("getUsersbyPosition")
+                    .setParameter("position",position)
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
+    public List<User> getUsersbyUserName(String userName){
+        try{
+            return em.createNamedQuery("getUsersbyUserName")
+                    .setParameter("userName",userName)
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
+    public List<User> getAllUsers(){
+        try{
+            return em.createNamedQuery("getAllUsers")
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     /**
      * Seat
      */
@@ -166,11 +191,18 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-
+    public List<Seat> getAllSeats(){
+        try{
+            return em.createNamedQuery("getAllSeats")
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     /**
      * Dish
      */
-    public List<Dish> getDishbyType(String type){
+    public List<Dish> getDishesbyType(String type){
         try{
             return em.createNamedQuery("getDishesbyType")
                     .setParameter("type",type)
@@ -179,7 +211,31 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-
+    public Dish getDishbyId(String dishId){
+        try{
+            return (Dish)em.createNamedQuery("getDishbyId")
+                    .getSingleResult();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
+    public List<Dish> getAllDishes(){
+        try{
+            return em.createNamedQuery("getAllDishes")
+                    .getResultList();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
+    public List<String> getDishesbyOrder(Integer orderId){
+        try{
+            return em.createNamedQuery("getDishesbyOrder")
+                    .setParameter("orderId",orderId)
+                    .getResultList();
+        }catch(Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     /**
      * Order
      */
@@ -194,18 +250,6 @@ public class RequestBean {
         }
     }
 
-    /**
-     * Dish_in_Order
-     */
-    public List<String> getDishsbyOrder(Integer orderId){
-        try{
-            return em.createNamedQuery("getDishesbyOrder")
-                    .setParameter("orderId",orderId)
-                    .getResultList();
-        }catch(Exception e){
-            throw new EJBException(e.getMessage());
-        }
-    }
     public List<String> getOrdersbyDish(String dishId){
         try{
             return em.createNamedQuery("getOrdersbyDish")
