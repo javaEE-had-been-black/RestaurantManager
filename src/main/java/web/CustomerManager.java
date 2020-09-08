@@ -9,6 +9,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -75,6 +76,13 @@ public class CustomerManager implements Serializable {
     public List<Customer> getAllCustomers(){
         try{
             return request.getAllCustomers();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
+    public List<Customer> getCustomerbyDate(Date startTime,Date endTime){
+        try {
+            return request.getCustomersbyDate(startTime,endTime);
         }catch (Exception e){
             throw new EJBException(e.getMessage());
         }
