@@ -13,16 +13,20 @@ import static javax.persistence.TemporalType.TIMESTAMP;
 @Table(name = "RESTAURANT_BILL")
 @NamedQueries({
         @NamedQuery(
-                name="getBillbyDate",
+                name = "getBillsbyDate",
                 query = "SELECT b FROM Bill b WHERE b.itemData>:startTime and b.itemData<:endTime"
         ),
         @NamedQuery(
-                name="getBillbyType",
+                name = "getBillsbyType",
                 query = "SELECT b FROM Bill b WHERE b.type=:type"
         ),
         @NamedQuery(
-                name="getBillbyId",
+                name = "getBillbyId",
                 query = "SELECT b FROM Bill b WHERE b.itemId=:itemId"
+        ),
+        @NamedQuery(
+                name = "getAllBills",
+                query = "SELECT b FROM Bill b"
         )
 })
 public class Bill implements Serializable {

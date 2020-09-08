@@ -11,23 +11,31 @@ import java.util.List;
 @Table(name = "RESTAURANT_DISH")
 @NamedQueries({
         @NamedQuery(
-                name="getDishbyType",
+                name = "getDishbyId",
+                query = "SELECT d FROM Dish d WHERE d.dishId=:dishId"
+        ),
+        @NamedQuery(
+                name = "getDishesbyType",
                 query = "SELECT d FROM Dish d WHERE d.type=:type"
         ),
         @NamedQuery(
-                name="getOrdersbyDish",
+                name = "getDishes",
+                query = "SELECT d from Dish d"
+        ),
+        @NamedQuery(
+                name = "getOrdersbyDish",
                 query = "SELECT d.orders FROM Dish d WHERE d.dishId=:dishId"
         )
 })
 
 
-public class Dish implements Serializable{
+public class Dish implements Serializable {
     private String dishId;
     private String dishName;
     private String dishPrice;
     private String imageUrl;
     private String type;
-    private List<Order>orders;
+    private List<Order> orders;
 
     @ManyToMany(mappedBy = "dishes")
     public List<Order> getOrders() {

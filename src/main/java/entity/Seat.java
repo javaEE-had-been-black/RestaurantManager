@@ -9,8 +9,8 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "RESTAURANT_SEAT")
-@NamedQueries(
-        {@NamedQuery(
+@NamedQueries({
+        @NamedQuery(
                 name = "getSeatsbyCapacity",
                 query = "SELECT s FROM Seat s WHERE s.capacity=:capacity"
         ),
@@ -19,9 +19,14 @@ import java.io.Serializable;
                 query = "SELECT s FROM Seat s WHERE s.private=true"
         ),
         @NamedQuery(
-                name="getSeatStatus",
-                query = "select s.status FROM Seat s WHERE s.seatId=:seatId"
-        )}
+                name = "getSeatStatus",
+                query = "SELECT s.status FROM Seat s WHERE s.seatId=:seatId"
+        ),
+        @NamedQuery(
+                name = "getAllSeats",
+                query = "SELECT s FROM Seat s"
+        )
+}
 )
 public class Seat implements Serializable {
     private String seatId;

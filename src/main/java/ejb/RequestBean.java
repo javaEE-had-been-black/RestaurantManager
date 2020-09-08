@@ -118,16 +118,16 @@ public class RequestBean {
      */
     public User getUser(String userId){
         try{
-            return (User) em.createNamedQuery("getUser")
+            return (User) em.createNamedQuery("getUserbyUserId")
                     .setParameter("userId",userId)
                     .getSingleResult();
         }catch(Exception e){
             throw new EJBException(e.getMessage());
         }
     }
-    public String searchUserIdbytel(String telNumber){
+    public User searchUserIdbytel(String telNumber){
         try{
-            return (String)em.createNamedQuery("searchUserIdbyTel")
+            return (User)em.createNamedQuery("searchUserbyTel")
                     .setParameter("telNumber",telNumber)
                     .getSingleResult();
         }catch(Exception e){
@@ -171,7 +171,7 @@ public class RequestBean {
      */
     public List<Dish> getDishbyType(String type){
         try{
-            return em.createNamedQuery("getDishbyType")
+            return em.createNamedQuery("getDishesbyType")
                     .setParameter("type",type)
                     .getResultList();
         }catch(Exception e){
@@ -184,7 +184,7 @@ public class RequestBean {
      */
     public List<Order> getOrderbyTime(Date startTime,Date endTime){
         try{
-            return em.createNamedQuery("getOrderbyTime")
+            return em.createNamedQuery("getOrdersbyTime")
                     .setParameter("startTime",startTime)
                     .setParameter("endTime",endTime)
                     .getResultList();
@@ -252,7 +252,7 @@ public class RequestBean {
      */
     public List<Bill> getBillbyDate(Date startTime,Date endTime){
         try{
-            return em.createNamedQuery("getBillbyDate")
+            return em.createNamedQuery("getBillsbyDate")
                     .setParameter("startTime",startTime)
                     .setParameter("endTime",endTime)
                     .getResultList();
@@ -262,7 +262,7 @@ public class RequestBean {
     }
     public List<Bill> getBillbyType(boolean type){
         try{
-            return em.createNamedQuery("getBillbyType")
+            return em.createNamedQuery("getBillsbyType")
                     .setParameter("type",type)
                     .getResultList();
         }catch(Exception e){

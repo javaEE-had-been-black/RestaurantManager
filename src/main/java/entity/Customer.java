@@ -2,6 +2,7 @@ package entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @author zhang
@@ -10,27 +11,37 @@ import java.io.Serializable;
 @Table(name = "RESTAURANT_CUSTOMER")
 @NamedQueries({
         @NamedQuery(
-                name="addPoints",
+                name = "addPoints",
                 query = "UPDATE Customer c SET c.points=c.points+:points WHERE c.customerId=:customerId"
         ),
         @NamedQuery(
-                name="usePoints",
-                query="UPDATE Customer c SET c.points=c.points-:points WHERE c.customerId=:customerId"
+                name = "usePoints",
+                query = "UPDATE Customer c SET c.points=c.points-:points WHERE c.customerId=:customerId"
         ),
         @NamedQuery(
-                name="getCustomerbyName",
+                name = "getCustomerbyName",
                 query = "SELECT c FROM Customer c WHERE c.customerName=:customerName"
+        ),
+        @NamedQuery(
+                name = "getAllCustomers",
+                query = "SELECT c FROM Customer c"
+        ),
+        @NamedQuery(
+                name = "getCustomerbyDate",
+                query = "SELECT c FROM Customer c WHERE c.addTime>:startTime and c.addTime<:endTime"
         )
 })
-public class Customer implements Serializable{
+public class Customer implements Serializable {
     private Integer customerId;
     private String telNumber;
     private String customerName;
     private Integer points;
+    private Date addTime;
 
     public Customer(String telNumber, String customerName) {
         this.telNumber = telNumber;
         this.customerName = customerName;
+        this.addTime = new Date();
         this.points = 0;
     }
 
@@ -67,8 +78,16 @@ public class Customer implements Serializable{
     }
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     public Integer getCustomerId() {
         return customerId;
+    }
+
+    public Date getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Date addTime) {
+        this.addTime = addTime;
     }
 }

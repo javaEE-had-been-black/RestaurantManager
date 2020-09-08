@@ -8,19 +8,17 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "RASTAURANT_REPOSITORY")
-@NamedQueries(
-        {
-                @NamedQuery(
-                        name = "getItemsbyName",
-                        query = "SELECT r FROM Repository r WHERE r.itemName=:itemName"
-                ),
-                @NamedQuery(
-                        name="getAllItems",
-                        query = "SELECT r FROM Repository r"
-                )
+@NamedQueries({
+        @NamedQuery(
+                name = "getItemsbyName",
+                query = "SELECT r FROM Repository r WHERE r.itemName=:itemName"
+        ),
+        @NamedQuery(
+                name = "getAllItems",
+                query = "SELECT r FROM Repository r"
+        )
 
-        }
-)
+})
 
 
 public class Repository implements Serializable {

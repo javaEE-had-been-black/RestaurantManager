@@ -10,20 +10,25 @@ import java.io.Serializable;
 @Table(name = "RESTAURANT_USER")
 @NamedQueries({
         @NamedQuery(
-                name="getUser",
+                name = "getUserbyUserId",
                 query = "SELECT u FROM User u WHERE u.userId=:userId"
         ),
         @NamedQuery(
-                name="searchUserIdbyTel",
+                name = "searchUserbyTel",
                 query = "SELECT u FROM User u WHERE u.telNumber=:telNumber"
         ),
         @NamedQuery(
-                name="getUserId",
-                query = "SELECT u.userId FROM User u WHERE u.userName=:userName"
+                name = "getUsersbyPosition",
+                query = "SELECT u FROM User u WHERE u.position=:position"
         ),
-//        @NamedQuery(
-//                name=""
-//        )
+        @NamedQuery(
+                name = "getUsersbyUserName",
+                query = "SELECT u FROM User u WHERE u.userName=:userName"
+        ),
+        @NamedQuery(
+                name = "getUsers",
+                query = "SELECT u FROM User u"
+        )
 })
 
 public class User implements Serializable {

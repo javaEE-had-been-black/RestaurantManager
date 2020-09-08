@@ -11,18 +11,19 @@ import java.util.List;
 @Entity
 @Table(name = "RESTAURANT_ORDER")
 @NamedQueries(
-        {@NamedQuery(
-                name = "getOrderbyTime",
-                query = "SELECT o FROM Order o WHERE o.startTime>:startTime and o.endTime<:endTime "
-        ),
-        @NamedQuery(
-                name = "getOrderbyId",
-                query = "SELECT o FROM Order o WHERE o.orderId=:orderId"
-        ),
-        @NamedQuery(
-                name = "getDishesbyOrder",
-                query = "SELECT o.dishes FROM Order o WHERE o.orderId=:orderId"
-        )
+        {
+                @NamedQuery(
+                        name = "getOrdersbyTime",
+                        query = "SELECT o FROM Order o WHERE o.startTime>:startTime and o.endTime<:endTime "
+                ),
+                @NamedQuery(
+                        name = "getOrderbyId",
+                        query = "SELECT o FROM Order o WHERE o.orderId=:orderId"
+                ),
+                @NamedQuery(
+                        name = "getDishesbyOrder",
+                        query = "SELECT o.dishes FROM Order o WHERE o.orderId=:orderId"
+                )
         }
 )
 
