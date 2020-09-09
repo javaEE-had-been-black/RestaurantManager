@@ -54,8 +54,7 @@ public class Order implements Serializable {
     public Order() {
     }
 
-    public Order(Integer orderId, Date startTime, Date endTime, String orderPrice, Integer discount, String comment, Seat seat, User user, Customer customer) {
-        this.orderId = orderId;
+    public Order(Date startTime, Date endTime, String orderPrice, Integer discount, String comment, Seat seat, User user, Customer customer,List<Dish>dishes) {
         this.startTime = startTime;
         this.endTime = endTime;
         this.orderPrice = orderPrice;
@@ -64,6 +63,7 @@ public class Order implements Serializable {
         this.seat = seat;
         this.user = user;
         this.customer = customer;
+        this.dishes=dishes;
     }
 
     @ManyToOne
