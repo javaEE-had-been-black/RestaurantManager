@@ -1,19 +1,17 @@
 
-.Show
-{
+.Show {
     display: flex;
-    flex-direction:row;
-}
-.Choice
-{
-    display: flex;
-    flex-direction:column;
+    flex-direction: row;
 }
 
-.Info
-{
-    margin-left:150px;
-    margin-top:50px;
+.Choice {
+    display: flex;
+    flex-direction: column;
+}
+
+.Info {
+    margin-left: 150px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
 }
@@ -27,31 +25,31 @@
     width: 180px;
     height: 55px;
     font-size: 32px;
-    style:text-align;
+    style: text-align;
 }
-.buttonTable
-{
+
+.buttonTable {
     border-color: cornsilk;
-    background-color:slategray;
+    background-color: slategray;
     color: whitesmoke;
     border-style: groove;
     border-radius: 10px;
     width: 600px;
     height: 85px;
     font-size: 32px;
-    style:text-align center;
+    style: text-align center;
 }
 
-.labelMessage{
+.labelMessage {
 
     border-color: cornsilk;
-    background-color:slategray;
+    background-color: slategray;
     color: whitesmoke;
     border-style: groove;
     border-radius: 10px;
-    font-size:32px;
+    font-size: 32px;
     width: 600px;
     height: 60px;
-    style:text-align  center;
+    style: text-align center;
 }
 

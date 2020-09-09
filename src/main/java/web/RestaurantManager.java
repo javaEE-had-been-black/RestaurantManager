@@ -24,6 +24,33 @@ public class RestaurantManager implements Serializable {
     private RequestBean request;
     private String userId;
     private String password;
+    private String position;
+    private String userName;
+    private String salary;
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public void setSalary(String salary) {
+        this.salary = salary;
+    }
+
+    public String getPosition() {
+        return position;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public String getSalary() {
+        return salary;
+    }
 
     public void setUserId(String userId) {
         this.userId = userId;
@@ -106,12 +133,22 @@ public class RestaurantManager implements Serializable {
      * @return 是否运行登录
      */
     public String login() {
-        request.createUser("18055548766", "任梦婕", "1234", "外卖小哥", "18055548766", "7777");
-//        if(userId.equals("admin")&&password.equals("1234")){
-//            return true;
-//        }
-        return "success";
-        //return password.equals(request.getUserbyUserId(userId).getPassword());
+        try {
+              if (password.equals(request.getUserbyUserId(userId).getPassword())) {
+                User user = request.getUserbyUserId(userId);
+                userId = user.getUserId();
+                userName = user.getUserName();
+                password = user.getPassword();
+                position = user.getPosition();
+                salary = user.getSalary();
+                return "success";
+            }
+        }
+        catch (Exception ex) {
+            ex.printStackTrace();
+            return "fail";
+        }
+        return "fail";
     }
     //获取user信息
 
@@ -151,6 +188,15 @@ public class RestaurantManager implements Serializable {
         try {
             return request.getDishesbyType(type);
         } catch (EJBException e) {
+            throw e;
+        }
+    }
+
+
+    public List<Dish> getAllDishes() {
+        try {
+            return request.getAllDishes();
+        } catch (Exception e) {
             throw e;
         }
     }

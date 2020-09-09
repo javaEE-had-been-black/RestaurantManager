@@ -7,35 +7,13 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
-<%
-    int type = 0;
-//    String typeString=request.getParameter("type");
-//    if(typeString.equals("")){
-//        type=1;
-//    }
-//    else {
-//        type=Integer.getInteger(typeString);
-//    }
-%>
-
-
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/management.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/dishManage.css"/>
     <title>manage</title>
 </head>
 <body background="resources/images/background.jpg"
       style="background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed;">
-
-
-<%--<script type="text/javascript">--%>
-<%--    function myRefresh(){--%>
-<%--        --%>
-
-<%--    }--%>
-
-
-<%--</script>--%>
 
 
 <div class="show">
