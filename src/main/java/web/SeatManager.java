@@ -107,14 +107,22 @@ public class SeatManager implements Serializable {
      * 查询所有
      */
     public void getAllSeats(){
-
+        try{
+            return request.getALlSeats();
+        }catch (Exception e){
+            logger.warning("Problem getSeatStatus.");
+        }
     }
 
     /**
      * 查询单个Seat状态
      */
     public String getStatus(){
-
+        try{
+            return request.getSeatStatus(seatId);
+        }catch (Exception e){
+            logger.warning("Problem getSeatStatus.");
+        }
     }
 
     /**
@@ -122,7 +130,7 @@ public class SeatManager implements Serializable {
      */
     public List<Seat> getSeatsbyStatus(){
         try{
-
+            return request.getSeatsbyStatus(seatsStatus);
         }catch (Exception e){
             logger.warning("Problem getSeatsbyStatus.");
         }

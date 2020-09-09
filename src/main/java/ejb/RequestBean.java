@@ -277,7 +277,14 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-
+    public List<Seat> getSeatsbyStatus(String status){
+        try {
+            return em.createNamedQuery("getSeatsbyStatus")
+                    .setParameter("status",status);
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     /**
      * Dish
      */
