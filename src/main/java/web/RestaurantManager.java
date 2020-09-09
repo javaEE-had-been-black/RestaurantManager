@@ -140,16 +140,30 @@ public class RestaurantManager implements Serializable {
         }
     }
 
+    public String updateUserInfo(String userId,
+                                 String userName,
+                                 String password,
+                                 String position,
+                                 String telNumber,
+                                 String salary) {
+        User user = request.getUserbyUserId(userId);
+        user.setUserName(userName);
+        user.setPassword(password);
+        user.setPosition(position);
+        user.setTelNumber(telNumber);
+        user.setSalary(salary);
+        return "success";
+    }
+
     /**
      * @param
      * @return 是否运行登录
      */
     public String login() {
         try {
-            if (userId==null||password == null){
+            if (userId == null || password == null) {
                 return "请输入账号和密码!!";
-            }
-            else if (password.equals(request.getUserbyUserId(userId).getPassword())) {
+            } else if (password.equals(request.getUserbyUserId(userId).getPassword())) {
                 User user = request.getUserbyUserId(userId);
                 userId = user.getUserId();
                 userName = user.getUserName();
@@ -157,7 +171,7 @@ public class RestaurantManager implements Serializable {
                 position = user.getPosition();
                 salary = user.getSalary();
                 return "success";
-            }else{
+            } else {
                 return "密码错误或账号不存在!";
             }
         } catch (Exception ex) {
@@ -236,10 +250,10 @@ public class RestaurantManager implements Serializable {
         }
     }
 
-    public List<User> getAllUsers(){
+    public List<User> getAllUsers() {
         try {
             return request.getAllUsers();
-        }catch (Exception ex){
+        } catch (Exception ex) {
             ex.printStackTrace();
             return null;
         }
