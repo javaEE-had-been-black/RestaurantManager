@@ -109,15 +109,23 @@ public class SeatManager implements Serializable {
     /**
      * 添加Seat
      */
-    public void createSeat() {
+    private String createSeatInfo;
+    public String createSeat() {
         try {
+            createSeatInfo = null;
+            if(request.getSeatbyId(newSeatId)!=null){
+                createSeatInfo = "座位号冲突";
+                return "fail";
+            }
             request.createSeat(newSeatId, newCapacity, newStatus, newIsPrivate);
             this.newSeatId = null;
             this.newCapacity = null;
             this.newStatus = null;
             this.newIsPrivate = false;
+            return "success";
         } catch (Exception e) {
             logger.warning("Problem creating seat in createSeat.");
+            return "fail";
         }
     }
 
