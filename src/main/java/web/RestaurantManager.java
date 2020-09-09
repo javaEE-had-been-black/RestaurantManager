@@ -149,24 +149,7 @@ public class RestaurantManager implements Serializable {
         }
     }
 
-    /**
-     * Customer
-     */
-    public void addPoints(Integer customerId, Integer points) {
-        try {
-            request.addPoints(customerId, points);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
 
-    public void usePoints(Integer customerId, Integer points) {
-        try {
-            request.usePoints(customerId, points);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
 
     /**
      * bill
