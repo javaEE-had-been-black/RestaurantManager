@@ -220,6 +220,15 @@ public class RestaurantManager implements Serializable {
         }
     }
 
+    public List<User> getAllUsers(){
+        try {
+            return request.getAllUsers();
+        }catch (Exception ex){
+            ex.printStackTrace();
+            return null;
+        }
+    }
+
 
     /**
      * bill

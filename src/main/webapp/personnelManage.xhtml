@@ -33,21 +33,22 @@
 
         <table>
             <tr>
-                <th>账号</th>
+                <th>手机号（账号）</th>
                 <th>姓名</th>
-                <th>身份证</th>
                 <th>职位</th>
                 <th>密码</th>
+                <th>工资</th>
             </tr>
 
+            <ui:repeat var="user" value="#{restaurantManager.getAllUsers()}">
             <tr>
-                <td>18055548766</td>
-                <td>任梦婕</td>
-                <td>777777777777777777777777</td>
-                <td>外卖小哥</td>
-                <td>7777777</td>
+                <td>#{user.telNumber}</td>
+                <td>#{user.userName}</td>
+                <td>#{user.position}</td>
+                <td>#{user.password}</td>
+                <td>#{user.salary}</td>
             </tr>
-
+            </ui:repeat>
         </table>
 
     </div>
