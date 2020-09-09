@@ -275,7 +275,16 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-
+    public Integer getOrderIdbySeatIdandStatus(String seatId,String status){
+        try{
+            return em.createNamedQuery("getOrderIdbySeatIdandStatus")
+                    .setParameter("seatId",seatId)
+                    .setParameter("status",status)
+                    .getSingleResult().getOrderId();
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     public List<Seat> getAllSeats() {
         try {
             return em.createNamedQuery("getAllSeats")
@@ -333,7 +342,7 @@ public class RequestBean {
         }
     }
 
-    public List<String> getDishesbyOrder(Integer orderId) {
+    public List<Dish> getDishesbyOrder(Integer orderId) {
         try {
             return em.createNamedQuery("getDishesbyOrder")
                     .setParameter("orderId", orderId)

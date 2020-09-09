@@ -220,7 +220,7 @@ public class RestaurantManager implements Serializable {
      * DishinOrder
      */
 
-    public List<String> getDishsbyOrder(Integer orderId) {
+    public List<Dish> getDishsbyOrder(Integer orderId) {
         try {
             return request.getDishesbyOrder(orderId);
         } catch (EJBException e) {
