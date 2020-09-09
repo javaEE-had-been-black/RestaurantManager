@@ -33,54 +33,16 @@ public class RestaurantManager implements Serializable {
      * Seat
      */
 
-    public void createSeat(String seatId,
-                           String capacity,
-                           String status,
-                           boolean isPrivate) {
-        try {
-            request.createSeat(seatId, capacity, status, isPrivate);
-        } catch (Exception e) {
-            logger.warning("creat seat failed ,info is\n" + e.getMessage());
-            throw e;
-        }
-    }
-
-    /**
-     * @param capacity 座位可容纳的人数
-     * @return 一个包含所有符合条件的座位的列表
-     */
-    public List<Seat> getSeatsbyCapacity(String capacity) {
-        try {
-            return request.getSeatsbyCapacity(capacity);
-        } catch (Exception e) {
-            logger.warning("getSeatsbyCapacity failde" + e.getMessage());
-            throw e;
-        }
-    }
-
-    public List<Seat> getAllPrivateSeats() {
-        //获得所有包厢
-        try {
-            return request.getAllPrivateSeats();
-        } catch (Exception e) {
-            logger.warning("get all private seats failed,info is \n" + e.getMessage());
-            throw e;
-        }
-    }
-
-    public String getSeatStatus(String seatId) {
-        try {
-            return request.getSeatStatus(seatId);
-        } catch (Exception e) {
-            logger.warning("get sear status failed ,info is\n" + e.getMessage());
-            throw e;
-        }
-    }
 
     /*
       User
      */
 
+    /**
+     * 判断User是否存在
+     * @param userId userid
+     * @return 返回bool值表示user是否存在
+     */
     public boolean hasUser(String userId) {
         return request.getUserbyUserId(userId) != null;
     }

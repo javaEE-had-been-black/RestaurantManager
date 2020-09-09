@@ -83,6 +83,66 @@ public class SeatManager implements Serializable {
         this.seatsStatus = seatsStatus;
     }
 
+
+    /**
+     * 创建座位
+     * @param seatId 座位id
+     * @param capacity 座位人数
+     * @param status 座位状态
+     * @param isPrivate 是否是包间
+     */
+    public void createSeat(String seatId,
+                           String capacity,
+                           String status,
+                           boolean isPrivate) {
+        try {
+            request.createSeat(seatId, capacity, status, isPrivate);
+        } catch (Exception e) {
+            logger.warning("creat seat failed ,info is\n" + e.getMessage());
+            throw e;
+        }
+    }
+
+    /**
+     * @param capacity 座位可容纳的人数
+     * @return 一个包含所有符合条件的座位的列表
+     */
+    public List<Seat> getSeatsbyCapacity(String capacity) {
+        try {
+            return request.getSeatsbyCapacity(capacity);
+        } catch (Exception e) {
+            logger.warning("getSeatsbyCapacity failde" + e.getMessage());
+            throw e;
+        }
+    }
+
+    /**
+     * 获得所有包厢
+     * @return 所有包厢的列表
+     */
+    public List<Seat> getAllPrivateSeats() {
+        try {
+            return request.getAllPrivateSeats();
+        } catch (Exception e) {
+            logger.warning("get all private seats failed,info is \n" + e.getMessage());
+            throw e;
+        }
+    }
+
+    /**
+     * 获取座位状态
+     * @param seatId 座位id
+     * @return 座位的状态
+     */
+    public String getSeatStatus(String seatId) {
+        try {
+            return request.getSeatStatus(seatId);
+        } catch (Exception e) {
+            logger.warning("get sear status failed ,info is\n" + e.getMessage());
+            throw e;
+        }
+    }
+
     /**
      * 添加Seat
      */
