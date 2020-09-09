@@ -219,10 +219,10 @@ public class CustomerManager implements Serializable {
     /**
      * 删除Customer
      */
-    public void removeCustomer(){
-        try{
+    public void removeCustomer() {
+        try {
             request.removeCustomer(customerId);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.warning("Problem removing customer in removeCustomer.");
         }
     }

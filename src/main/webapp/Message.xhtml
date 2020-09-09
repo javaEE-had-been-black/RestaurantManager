@@ -13,9 +13,7 @@
 </h:head>
 
 
-<body
-        background="resources/images/background.jpg"
-        style="background-repeat:no-repeat;
+<body background="resources/images/background.jpg" style="background-repeat:no-repeat;
         background-size:100% 100%;
         background-attachment:fixed;">
 
@@ -25,24 +23,15 @@
 
     <div class="Choice">
         <h:form>
-            <h:commandButton class="button" value="个人信息" style="text-align: left"
-                             action="PersonIn"/>
-
+            <h:commandButton class="button" value="个人信息" style="text-align: left" action="personIn"/>
             <br> </br>
             <br> </br>
             <br> </br>
-            <h:commandButton class="button" value="我的餐馆" style="text-align: left"
-                             action="Myrestaurant"/>
+            <h:commandButton class="button" value="我的消息" style="text-align: left" action="Message"/>
             <br> </br>
             <br> </br>
             <br> </br>
-            <h:commandButton class="button" value="关注的餐馆" style="text-align: left"
-                             action="PersonIn"/>
-            <br> </br>
-            <br> </br>
-            <br> </br>
-            <h:commandButton class="button" value="我的消息" style="text-align: left"
-                             action="Message"/>
+            <h:commandButton class="button" value="进入管理" style="text-align: left" action="vipManage"/>
         </h:form>
     </div>
 
@@ -51,14 +40,13 @@
 
         <h:form>
             <p>
-                <label class="labelMessage" >在这里插入表</label>
+                <label class="labelMessage">在这里插入表</label>
 
             </p>
             <p>
                 <h:commandButton class="buttonTable" value="本月报表已出，点击查看"
                                  action="PersonIn"/>
             </p>
-
 
 
         </h:form>

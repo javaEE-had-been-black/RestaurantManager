@@ -134,7 +134,7 @@ public class RestaurantManager implements Serializable {
      */
     public String login() {
         try {
-              if (password.equals(request.getUserbyUserId(userId).getPassword())) {
+            if (password.equals(request.getUserbyUserId(userId).getPassword())) {
                 User user = request.getUserbyUserId(userId);
                 userId = user.getUserId();
                 userName = user.getUserName();
@@ -143,8 +143,7 @@ public class RestaurantManager implements Serializable {
                 salary = user.getSalary();
                 return "success";
             }
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
             return "fail";
         }

@@ -8,7 +8,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-    <title>RestaurantManager</title>
+    <title>座位管理</title>
     <h:outputStylesheet library="css" name="seatManage.css"/>
 </h:head>
 <body background="resources/images/background.jpg"
@@ -18,12 +18,12 @@
 <div class="show">
 
     <div id="choice" class="choice">
-        <p>座位管理</p>
-        <p>菜谱管理</p>
-        <p>会员管理</p>
-        <p>人事管理</p>
-        <p>报表统计</p>
-        <p>仓库管理</p>
+        <h:commandButton class="button" value="座位管理" style="text-align: left" action="seatManage"/>
+        <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
+        <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
+        <h:commandButton class="button" value="人事管理" style="text-align: left" action="personnelManage"/>
+        <h:commandButton class="button" value="报表统计" style="text-align: left" action=""/>
+        <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
     </div>
 
     <div id="seats-content" class="content">
@@ -50,12 +50,12 @@
 
         <div class="seats-container">
             <ui:repeat var="seat" value="#{seatManager.allSeats}">
-            <div class="seat-container">
-                <img src="resources/images/seat.jpg" style="width: 50px;height: 50px" alt="座位"/><br/>
-                <h:outputText value="#{seat.seatId}"/><br/>
-                <h:outputText value="#{seat.capacity}人"/><br/>
-                <h:outputText value="#{seat.status}"/>
-            </div>
+                <div class="seat-container">
+                    <img src="resources/images/seat.jpg" style="width: 50px;height: 50px" alt="座位"/><br/>
+                    <h:outputText value="#{seat.seatId}"/><br/>
+                    <h:outputText value="#{seat.capacity}人"/><br/>
+                    <h:outputText value="#{seat.status}"/>
+                </div>
             </ui:repeat>
         </div>
     </div>

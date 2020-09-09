@@ -11,18 +11,19 @@
     <title>RestaurantManager</title>
     <h:outputStylesheet library="css" name="dishManage.css"/>
 </h:head>
-<body background="resources/images/background.jpg"
-      style="background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed;">
+<body background="resources/images/background.jpg" style="background-repeat:no-repeat;
+        background-size:100% 100%;
+        background-attachment:fixed;">
 
 <div class="show">
 
     <div id="choice" class="choice">
-        <p>座位管理</p>
-        <p>菜谱管理</p>
-        <p>会员管理</p>
-        <p>人事管理</p>
-        <p>报表统计</p>
-        <p>仓库管理</p>
+        <h:commandButton class="button" value="座位管理" style="text-align: left" action="seatManage"/>
+        <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
+        <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
+        <h:commandButton class="button" value="人事管理" style="text-align: left" action="personnelManage"/>
+        <h:commandButton class="button" value="报表统计" style="text-align: left" action=""/>
+        <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
     </div>
 
     <div id="dishes-content" class="dishes-content">
@@ -40,13 +41,14 @@
 
         <div class="dishes-container">
             <ui:repeat var="dish" value="#{restaurantManager.getAllDishes()}">
-            <div class="dish-container">
-                <img src="#{dish.imageUrl}" style="width: 100px;height: 100px;border:2px solid grey" alt="菜品图片"></img>
-                <p>
-                    #{dish.dishName}<br/>
-                    价格:￥#{dish.dishPrice}
-                </p>
-            </div>
+                <div class="dish-container">
+                    <img src="#{dish.imageUrl}" style="width: 100px;height: 100px;border:2px solid grey"
+                         alt="菜品图片"></img>
+                    <p>
+                        #{dish.dishName}<br/>
+                        价格:￥#{dish.dishPrice}
+                    </p>
+                </div>
             </ui:repeat>
         </div>
 
