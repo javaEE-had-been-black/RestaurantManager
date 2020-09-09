@@ -26,6 +26,9 @@ public class RestaurantManager implements Serializable {
 
     private Integer currentOrder;
     private String currentDish;
+
+    private String userId;
+    private String password;
     // 添加座位
     // 删除座位
     // 修改状态
@@ -81,10 +84,9 @@ public class RestaurantManager implements Serializable {
     }
 
     /**
-     * @param userId
      * @return 是否运行登录
      */
-    public boolean login(String userId, String password) {
+    public boolean login() {
         return password.equals(request.getUserbyUserId(userId).getPassword());
     }
     //获取user信息
@@ -148,8 +150,6 @@ public class RestaurantManager implements Serializable {
             throw e;
         }
     }
-
-
 
     /**
      * bill
