@@ -27,6 +27,15 @@ public class RestaurantManager implements Serializable {
     private String position;
     private String userName;
     private String salary;
+    private String logInfo;
+
+    public String getLogInfo() {
+        return logInfo;
+    }
+
+    public void setLogInfo(String logInfo) {
+        this.logInfo = logInfo;
+    }
 
     public void setPosition(String position) {
         this.position = position;
