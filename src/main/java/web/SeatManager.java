@@ -37,6 +37,7 @@ public class SeatManager implements Serializable {
     public String getSeatCapacity() {
         return seatCapacity;
     }
+
     public String getSeatId() {
         return seatId;
     }
@@ -62,7 +63,6 @@ public class SeatManager implements Serializable {
     }
 
 
-
     // -----------------------------------//
     public void setNewSeatId(String newSeatId) {
         this.newSeatId = newSeatId;
@@ -83,6 +83,7 @@ public class SeatManager implements Serializable {
     public void setSeatId(String seatId) {
         this.seatId = seatId;
     }
+
     public void setSeatsStatus(String seatsStatus) {
         this.seatsStatus = seatsStatus;
     }
@@ -93,6 +94,7 @@ public class SeatManager implements Serializable {
 
     /**
      * 获得所有包厢
+     *
      * @return 所有包厢的列表
      */
     public List<Seat> getAllPrivateSeats() {
@@ -107,35 +109,37 @@ public class SeatManager implements Serializable {
     /**
      * 添加Seat
      */
-    public void createSeat(){
-        try{
-            request.createSeat(newSeatId,newCapacity,newStatus,newIsPrivate);
+    public void createSeat() {
+        try {
+            request.createSeat(newSeatId, newCapacity, newStatus, newIsPrivate);
             this.newSeatId = null;
             this.newCapacity = null;
             this.newStatus = null;
             this.newIsPrivate = false;
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.warning("Problem creating seat in createSeat.");
         }
     }
+
     /**
      * 根据Seat capacity 查询
      */
-    public List<Seat> getSeatsbyCapacity(){
-        try{
+    public List<Seat> getSeatsbyCapacity() {
+        try {
             return request.getSeatsbyCapacity(seatCapacity);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.warning("Problem getSeatsbyCapacity.");
             throw e;
         }
     }
+
     /**
      * 查询所有
      */
-    public List<Seat> getAllSeats(){
-        try{
+    public List<Seat> getAllSeats() {
+        try {
             return request.getAllSeats();
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.warning("Problem getAllSeats.");
             throw e;
         }
@@ -144,10 +148,10 @@ public class SeatManager implements Serializable {
     /**
      * 查询单个Seat状态
      */
-    public String getStatus(){
-        try{
+    public String getStatus() {
+        try {
             return request.getSeatStatus(seatId);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.warning("Problem getSeatStatus.");
             throw e;
         }
@@ -156,10 +160,10 @@ public class SeatManager implements Serializable {
     /**
      * 根据状态查询所有seat
      */
-    public List<Seat> getSeatsbyStatus(){
-        try{
+    public List<Seat> getSeatsbyStatus() {
+        try {
             return request.getSeatsbyStatus(seatsStatus);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.warning("Problem getSeatsbyStatus.");
             throw e;
         }
@@ -169,10 +173,10 @@ public class SeatManager implements Serializable {
     /**
      * 删除Seat
      */
-    public void removeSeat(){
-        try{
+    public void removeSeat() {
+        try {
             request.removeSeat(newSeatId);
-        }catch (Exception e){
+        } catch (Exception e) {
             logger.warning("Problem removing seat in removeSeat.");
         }
     }

@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%
-    int type=0;
+    int type = 0;
 //    String typeString=request.getParameter("type");
 //    if(typeString.equals("")){
 //        type=1;
@@ -40,7 +40,8 @@
 
 <div class="show">
     <div id="choice" class="choice">
-        <button onclick="window.location.replace("management.jsp")">座位管理</button>
+        <button onclick="window.location.replace(" management.jsp
+        ")">座位管理</button>
         <button onclick="<% type=2; %>">菜谱管理</button>
         <button onclick="<% type=3; %>">会员管理</button>
         <button onclick="<% type=4; %>">人事管理</button>
@@ -50,7 +51,7 @@
         </p>
     </div>
 
-    <% if(type==1) {
+    <% if (type == 1) {
     %>
     <%--餐位的部分--%>
     <div id="seats-content" class="seats-content">
@@ -96,7 +97,7 @@
 
     </div>
 
-    <% }else if(type==2){
+    <% } else if (type == 2) {
     %>
 
     <%--菜谱部分--%>
@@ -128,13 +129,13 @@
 
     </div>
 
-    <%  }else if(type==3){
+    <% } else if (type == 3) {
     %>
 
     <%--    会员管理--%>
     <div id="vips-content" class="vips-content">
         <%--        能够实现分页排行榜/搜索即可--%>
-        <% int sortType=0; %>
+        <% int sortType = 0; %>
         <div class="vipInput">
             <input type="text"/>
             <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索"/>
@@ -144,14 +145,14 @@
 
         </div>
 
-<%--            这边还需要实现一个分页的管理--%>
+        <%--            这边还需要实现一个分页的管理--%>
         <table>
             <tr>
                 <th>手机号</th>
                 <th>姓名</th>
                 <th>积分</th>
             </tr>
-            <% for(int i=0;i<9;i++){ %>
+            <% for (int i = 0; i < 9; i++) { %>
             <tr>
                 <td>18055548766</td>
                 <td>任梦婕</td>
@@ -163,18 +164,18 @@
     </div>
 
 
-    <%  }else if(type==4){
+    <% } else if (type == 4) {
     %>
 
     <%--人事管理--%>
-    <% int personnelType=1; %>
+    <% int personnelType = 1; %>
     <div id="personnels-content" class="personnels-content">
         <div class="personnel-operation">
             <button onclick="<% personnelType=1; %>">添加账号</button>
             <button onclick="<% personnelType=2; %>">更改账号</button>
             <button onclick="<% personnelType=3; %>">查看账号</button>
         </div>
-        <% if(personnelType==1){ %>
+        <% if (personnelType == 1) { %>
         <div class="addPersonnel">
             <p>添加用户</p><br>
             <p>*账号</p><input type="text"><br>
@@ -192,13 +193,12 @@
             <button>确认添加</button>
             <button>重置</button>
         </div>
-        <% }
-        else if(personnelType==2){ %>
-<%--        更改账号信息--%>
+        <% } else if (personnelType == 2) { %>
+        <%--        更改账号信息--%>
 
         <div class="changePersonnel">
             <p>更改用户</p><br>
-<%--            这里是一个搜索框--%>
+            <%--            这里是一个搜索框--%>
             <input type="text">
             <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索"/>
 
@@ -218,9 +218,8 @@
             <button>重置</button>
         </div>
 
-        <% }
-        else if(personnelType==3){ %>
-<%--        查询账户信息--%>
+        <% } else if (personnelType == 3) { %>
+        <%--        查询账户信息--%>
 
         <div class="searchPersonnel">
             <input type="text">
@@ -234,7 +233,7 @@
                     <th>职位</th>
                     <th>密码</th>
                 </tr>
-                <% for(int i=0;i<9;i++){ %>
+                <% for (int i = 0; i < 9; i++) { %>
                 <tr>
                     <td>18055548766</td>
                     <td>任梦婕</td>
@@ -251,7 +250,7 @@
     </div>
 
 
-    <%  }else if(type==5){
+    <% } else if (type == 5) {
     %>
 
     <%--    报表统计--%>
@@ -260,11 +259,11 @@
     </div>
 
 
-    <%  }else if(type==6){
+    <% } else if (type == 6) {
     %>
 
     <%--    仓库管理--%>
-    <% int warehousesType=1; %>
+    <% int warehousesType = 1; %>
     <div id="warehouses-content" class="warehouses-content">
         <div class="warehousesType">
             <p>进货信息</p>
@@ -272,17 +271,17 @@
             <p>货余量</p>
         </div>
 
-        <% if(warehousesType==1){ %>
+        <% if (warehousesType == 1) { %>
         <div>
 
 
         </div>
 
 
-        <% } else if(warehousesType==2){ %>
+        <% } else if (warehousesType == 2) { %>
 
 
-        <% }else if(warehousesType==3){ %>
+        <% } else if (warehousesType == 3) { %>
 
 
         <% } %>

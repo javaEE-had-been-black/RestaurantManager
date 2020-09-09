@@ -66,27 +66,31 @@ public class CustomerManager implements Serializable {
             throw new EJBException(e.getMessage());
         }
     }
-    public Customer getCustomerbyCustomerId(String customerId){
+
+    public Customer getCustomerbyCustomerId(String customerId) {
         try {
             return request.getCustomerbyCustomerId(customerId);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
-    public List<Customer> getAllCustomers(){
-        try{
-            return request.getAllCustomers();
-        }catch (Exception e){
-            throw new EJBException(e.getMessage());
-        }
-    }
-    public List<Customer> getCustomerbyDate(Date startTime,Date endTime){
+
+    public List<Customer> getAllCustomers() {
         try {
-            return request.getCustomersbyDate(startTime,endTime);
-        }catch (Exception e){
+            return request.getAllCustomers();
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
+
+    public List<Customer> getCustomerbyDate(Date startTime, Date endTime) {
+        try {
+            return request.getCustomersbyDate(startTime, endTime);
+        } catch (Exception e) {
+            throw new EJBException(e.getMessage());
+        }
+    }
+
     public void addPoints(Integer customerId, Integer points) {
         try {
             request.addPoints(customerId, points);

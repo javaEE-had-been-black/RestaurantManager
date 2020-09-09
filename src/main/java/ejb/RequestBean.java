@@ -125,59 +125,65 @@ public class RequestBean {
     /**
      * destructor
      */
-    public void removeUser(String userId){
-        try{
-            User user = em.find(User.class,userId);
+    public void removeUser(String userId) {
+        try {
+            User user = em.find(User.class, userId);
             em.remove(user);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
-    public void removeSeat(String seatId){
-        try{
-            Seat seat = em.find(Seat.class,seatId);
+
+    public void removeSeat(String seatId) {
+        try {
+            Seat seat = em.find(Seat.class, seatId);
             em.remove(seat);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
-    public void removeDish(String dishId){
-        try{
-            Dish dish = em.find(Dish.class,dishId);
+
+    public void removeDish(String dishId) {
+        try {
+            Dish dish = em.find(Dish.class, dishId);
             em.remove(dish);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
-    public void removeCustomer(Integer customerId){
-        try{
-            Customer customer = em.find(Customer.class,customerId);
+
+    public void removeCustomer(Integer customerId) {
+        try {
+            Customer customer = em.find(Customer.class, customerId);
             em.remove(customer);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
-    public void removeOrder(Integer orderId){
-        try{
-            Order order = em.find(Order.class,orderId);
+
+    public void removeOrder(Integer orderId) {
+        try {
+            Order order = em.find(Order.class, orderId);
             em.remove(order);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
-    public void removeBill(Integer itemId){
-        try{
-            Bill bill = em.find(Bill.class,itemId);
+
+    public void removeBill(Integer itemId) {
+        try {
+            Bill bill = em.find(Bill.class, itemId);
             em.remove(bill);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
-    public void removeRepository(Integer itemId){
-        try{
-            Repository repository = em.find(Repository.class,itemId);
+
+    public void removeRepository(Integer itemId) {
+        try {
+            Repository repository = em.find(Repository.class, itemId);
             em.remove(repository);
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
@@ -277,15 +283,17 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-    public List<Seat> getSeatsbyStatus(String status){
+
+    public List<Seat> getSeatsbyStatus(String status) {
         try {
-            return  em.createNamedQuery("getSeatsbyStatus")
-                    .setParameter("status",status)
+            return em.createNamedQuery("getSeatsbyStatus")
+                    .setParameter("status", status)
                     .getResultList();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
+
     /**
      * Dish
      */

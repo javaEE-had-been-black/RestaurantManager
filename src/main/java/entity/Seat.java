@@ -27,7 +27,7 @@ import java.io.Serializable;
                 query = "SELECT s FROM Seat s"
         ),
         @NamedQuery(
-                name="getSeatsbyStatus",
+                name = "getSeatsbyStatus",
                 query = "SELECT s FROM Seat s WHERE s.status=:status"
         )
 }

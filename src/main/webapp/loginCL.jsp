@@ -1,4 +1,4 @@
-<%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
+<%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
 <%@ page import="web.RestaurantManager" %>
 
 <html>
@@ -16,20 +16,19 @@
 
     response.setContentType("text/html;charset=utf-8");
 
-    String name=request.getParameter("username");
+    String name = request.getParameter("username");
 
-    String password=request.getParameter("password");
+    String password = request.getParameter("password");
 
 //判断登陆界面的用户名和密码，根据输入的不同情况进行不同的处理
 
-    RestaurantManager restaurantManager=new RestaurantManager();
+    RestaurantManager restaurantManager = new RestaurantManager();
 
-    Boolean result=restaurantManager.login(name,password);
+    Boolean result = restaurantManager.login(name, password);
 
-    if(result){
-        response.sendRedirect("management.jsp");
-    }
-    else {
+    if (result) {
+        response.sendRedirect("Pers.jsp");
+    } else {
         response.sendRedirect("login.jsp");
     }
 

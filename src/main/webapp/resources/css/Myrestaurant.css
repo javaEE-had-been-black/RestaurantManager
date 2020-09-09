@@ -1,19 +1,17 @@
 
-.Show
-{
+.Show {
     display: flex;
-    flex-direction:row;
-}
-.Choice
-{
-    display: flex;
-    flex-direction:column;
+    flex-direction: row;
 }
 
-.Info
-{
-    margin-left:150px;
-    margin-top:50px;
+.Choice {
+    display: flex;
+    flex-direction: column;
+}
+
+.Info {
+    margin-left: 150px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
 }
@@ -27,18 +25,18 @@
     width: 180px;
     height: 55px;
     font-size: 32px;
-    style:text-align;
+    style: text-align;
 }
-.Table
-{
+
+.Table {
 
 }
 
-.labelData{
-    font-size:32px;
+.labelData {
+    font-size: 32px;
     font-weight: bold;
     color: black;
     width: 180px;
     height: 30px;
-    style:text-align  center;
+    style: text-align center;
 }

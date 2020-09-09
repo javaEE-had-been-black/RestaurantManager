@@ -6,7 +6,7 @@ body {
 }
 
 
-.show{
+.show {
     width: 98%;
     display: flex;
     flex-direction: row;
@@ -18,7 +18,7 @@ body {
 }
 
 
-.choice{
+.choice {
     width: 8%;
     /*justify-content: center;*/
     margin-left: 30px;
@@ -30,36 +30,36 @@ body {
 }
 
 
-.choice p{
+.choice p {
     color: #666666;
     size: 30px;
 
 }
 
-#seats-content{
+#seats-content {
     display: flex;
     flex-direction: column;
 }
 
 
-.seatSearch{
+.seatSearch {
     display: flex;
     flex-direction: row;
     align-content: center;
 }
 
 
-.listSelect{
+.listSelect {
 
 }
 
 
-.seats-container{
+.seats-container {
     padding-bottom: 20px;
     padding-right: 20px;
 }
 
-.seat-container{
+.seat-container {
     margin-left: 20px;
     margin-top: 20px;
     display: flex;

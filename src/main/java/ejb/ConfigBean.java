@@ -16,10 +16,10 @@ public class ConfigBean {
     private RequestBean request;
 
     @PostConstruct
-    public void createData(){
+    public void createData() {
     }
 
     @PreDestroy
-    public void deleteData(){
+    public void deleteData() {
     }
 }

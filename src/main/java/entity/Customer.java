@@ -27,7 +27,7 @@ import java.util.Date;
                 query = "SELECT c FROM Customer c WHERE c.telNumber =:telNumber"
         ),
         @NamedQuery(
-                name="getCustomerbyCustomerId",
+                name = "getCustomerbyCustomerId",
                 query = "SELECT c FROM Customer c WHERE c.customerId=:customerId"
         ),
         @NamedQuery(

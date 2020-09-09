@@ -40,6 +40,7 @@ public class RestaurantManager implements Serializable {
 
     /**
      * 判断User是否存在
+     *
      * @param userId userid
      * @return 返回bool值表示user是否存在
      */
@@ -85,6 +86,10 @@ public class RestaurantManager implements Serializable {
      * @return 是否运行登录
      */
     public boolean login(String userId, String password) {
+        request.createUser("18055548766", "任梦婕", "1234", "外卖小哥", "18055548766", "7777");
+//        if(userId.equals("admin")&&password.equals("1234")){
+//            return true;
+//        }
         return password.equals(request.getUserbyUserId(userId).getPassword());
     }
     //获取user信息
@@ -148,7 +153,6 @@ public class RestaurantManager implements Serializable {
             throw e;
         }
     }
-
 
 
     /**
