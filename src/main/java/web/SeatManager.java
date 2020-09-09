@@ -220,4 +220,12 @@ public class SeatManager implements Serializable {
             throw e;
         }
     }
+
+    public Seat getSeatbyId(String seatId){
+        try{
+            return request.getSeatbyId(seatId);
+        }catch (Exception e){
+            throw e;
+        }
+    }
 }
