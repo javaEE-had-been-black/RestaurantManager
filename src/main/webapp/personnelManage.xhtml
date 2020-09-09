@@ -14,36 +14,44 @@
         background-size:100% 100%;
         background-attachment:fixed;">
 
-<h:commandButton class="button" value="座位管理" style="text-align: left" action="seatManage"/>
-<h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
-<h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
-<h:commandButton class="button" value="人事管理" style="text-align: left" action="personnelManage"/>
-<h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/>
-<h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
+<div class="show">
 
+    <div id="choice" class="choice">
+        <h:form>
+            <h:commandButton class="button" value="座位管理" style="text-align: left" action="seatManage"/>
+            <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
+            <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
+            <h:commandButton class="button" value="人事管理" style="text-align: left" action="personnelManage"/>
+            <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/>
+            <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
+        </h:form>
+    </div>
 
-<div class="searchPersonnel">
-    <input type="text"></input>
-    <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索"/>
+    <div class="searchPersonnel">
+        <input type="text"></input>
+        <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索"/>
 
-    <table>
-        <tr>
-            <th>账号</th>
-            <th>姓名</th>
-            <th>身份证</th>
-            <th>职位</th>
-            <th>密码</th>
-        </tr>
+        <table>
+            <tr>
+                <th>账号</th>
+                <th>姓名</th>
+                <th>身份证</th>
+                <th>职位</th>
+                <th>密码</th>
+            </tr>
 
-        <tr>
-            <td>18055548766</td>
-            <td>任梦婕</td>
-            <td>777777777777777777777777</td>
-            <td>外卖小哥</td>
-            <td>7777777</td>
-        </tr>
+            <tr>
+                <td>18055548766</td>
+                <td>任梦婕</td>
+                <td>777777777777777777777777</td>
+                <td>外卖小哥</td>
+                <td>7777777</td>
+            </tr>
 
-    </table>
+        </table>
+
+    </div>
+
 
 </div>
 </body>
