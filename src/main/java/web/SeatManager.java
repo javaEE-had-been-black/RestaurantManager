@@ -122,7 +122,7 @@ public class SeatManager implements Serializable {
     public String createSeat() {
         try {
             createSeatInfo = null;
-            if(request.getSeatbyId(newSeatId)!=null){
+            if(request.getSeatbySeatId(newSeatId)!=null){
                 createSeatInfo = "座位号冲突";
                 return "fail";
             }
@@ -223,7 +223,7 @@ public class SeatManager implements Serializable {
 
     public Seat getSeatbyId(String seatId){
         try{
-            return request.getSeatbyId(seatId);
+            return request.getSeatbySeatId(seatId);
         }catch (Exception e){
             throw e;
         }
