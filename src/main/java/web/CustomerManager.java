@@ -4,7 +4,6 @@ import ejb.RequestBean;
 import entity.Customer;
 
 import javax.ejb.EJB;
-import javax.ejb.EJBException;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
@@ -28,6 +27,8 @@ public class CustomerManager implements Serializable {
     private Integer customerId;
     private Integer points;
     private String customerName;
+    private Date startTime;
+    private Date endTime;
     private static final Logger logger = Logger.getLogger("RestaurantManager.web.CustomerManager");
 
 
@@ -37,8 +38,8 @@ public class CustomerManager implements Serializable {
     public void creatCustomer() {
         try {
             request.createCustomer(newTelNumber, newCustomerName);
-            this.newCustomerName=null;
-            this.newTelNumber=null;
+            this.newCustomerName = null;
+            this.newTelNumber = null;
         } catch (Exception e) {
             logger.warning("Problem creating seat in createSeat.");
         }
@@ -57,7 +58,7 @@ public class CustomerManager implements Serializable {
     }
 
     /**
-     *使用积分
+     * 使用积分
      */
     public void usePoint() {
         try {
@@ -67,6 +68,12 @@ public class CustomerManager implements Serializable {
         }
     }
 
+
+    /**
+     * 通过电话号码得到顾客的信息
+     *
+     * @return 顾客信息
+     */
     public Customer getCustomerbyTelNumber() {
         try {
             return request.getCustomerbyTelNumber(telNumber);
@@ -76,6 +83,12 @@ public class CustomerManager implements Serializable {
         }
     }
 
+    /**
+     * 通过顾客姓名得到同名的顾客列表
+     *
+     * @return 顾客列表
+     */
+
     public List<Customer> getCustomersbyCustomerName() {
         try {
             return request.getCustomerbyCustomerName(customerName);
@@ -84,39 +97,45 @@ public class CustomerManager implements Serializable {
             throw e;
         }
     }
-    public Customer getCustomerbyCustomerId(){
+
+    /**
+     * 通过顾客的id得到顾客信息
+     *
+     * @return 顾客信息
+     */
+    public Customer getCustomerbyCustomerId() {
         try {
             return request.getCustomerbyCustomerId(this.customerId);
-        }catch (Exception e){
-            throw new EJBException(e.getMessage());
-        }
-    }
-    public List<Customer> getAllCustomers(){
-        try{
-            return request.getAllCustomers();
-        }catch (Exception e){
-            throw new EJBException(e.getMessage());
-        }
-    }
-    public List<Customer> getCustomerbyDate(Date startTime,Date endTime){
-        try {
-            return request.getCustomersbyDate(startTime,endTime);
-        }catch (Exception e){
-            throw new EJBException(e.getMessage());
-        }
-    }
-    public void addPoints(Integer customerId, Integer points) {
-        try {
-            request.addPoints(customerId, points);
         } catch (Exception e) {
+            logger.warning("Problem getCustomerbyCustomerId");
             throw e;
         }
     }
 
-    public void usePoints(Integer customerId, Integer points) {
+    /**
+     * 得到所有的顾客
+     *
+     * @return 所有的顾客列表
+     */
+    public List<Customer> getAllCustomers() {
         try {
-            request.usePoints(customerId, points);
+            return request.getAllCustomers();
         } catch (Exception e) {
+            logger.warning("Problem getAllCustomers");
+            throw e;
+        }
+    }
+
+    /**
+     * 通过日期来得到该段时间注册的顾客
+     *
+     * @return 顾客列表
+     */
+    public List<Customer> getCustomerbyDate() {
+        try {
+            return request.getCustomersbyDate(startTime, endTime);
+        } catch (Exception e) {
+            logger.warning(("Problem getCustomebyDate"));
             throw e;
         }
     }
