@@ -7,6 +7,17 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
+<%
+    int type=0;
+    String typeString=request.getParameter("type");
+    if(typeString.equals("")){
+        type=1;
+    }
+    else {
+        type=Integer.getInteger(typeString);
+    }
+%>
+
 
 <html>
 <head>
@@ -16,11 +27,20 @@
 <body background="resources/images/background.jpg"
       style="background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed;">
 
-<% int type = 2; %>
+
+<%--<script type="text/javascript">--%>
+<%--    function myRefresh(){--%>
+<%--        --%>
+
+<%--    }--%>
+
+
+<%--</script>--%>
+
 
 <div class="show">
     <div id="choice" class="choice">
-        <button onclick="<% type=1; %>">座位管理</button>
+        <button onclick="window.location.replace("management.jsp")">座位管理</button>
         <button onclick="<% type=2; %>">菜谱管理</button>
         <button onclick="<% type=3; %>">会员管理</button>
         <button onclick="<% type=4; %>">人事管理</button>
@@ -30,8 +50,7 @@
         </p>
     </div>
 
-    <% switch (type) {
-        case 1:
+    <% if(type==1) {
     %>
     <%--餐位的部分--%>
     <div id="seats-content" class="seats-content">
@@ -77,8 +96,7 @@
 
     </div>
 
-    <% break;
-        case 2:
+    <% }else if(type==2){
     %>
 
     <%--菜谱部分--%>
@@ -110,8 +128,7 @@
 
     </div>
 
-    <% break;
-        case 3:
+    <%  }else if(type==3){
     %>
 
     <%--    会员管理--%>
@@ -146,8 +163,7 @@
     </div>
 
 
-    <% break;
-        case 4:
+    <%  }else if(type==4){
     %>
 
     <%--人事管理--%>
@@ -235,8 +251,7 @@
     </div>
 
 
-    <% break;
-        case 5:
+    <%  }else if(type==5){
     %>
 
     <%--    报表统计--%>
@@ -245,8 +260,7 @@
     </div>
 
 
-    <% break;
-        case 6:
+    <%  }else if(type==6){
     %>
 
     <%--    仓库管理--%>
@@ -260,7 +274,7 @@
 
         <% if(warehousesType==1){ %>
         <div>
-            
+
 
         </div>
 
@@ -276,9 +290,7 @@
 
     </div>
 
-    <% break;
-    }
-    %>
+    <% } %>
 
 
 </div>
