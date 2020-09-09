@@ -1,6 +1,7 @@
 package web;
 
 import ejb.RequestBean;
+import entity.Dish;
 import entity.Seat;
 
 import javax.ejb.EJB;
@@ -106,10 +107,18 @@ public class SeatManager implements Serializable {
         }
     }
 
+
     /**
      * 添加Seat
      */
     private String createSeatInfo;
+
+    public String getCreateSeatInfo() {
+        return createSeatInfo;
+    }
+    public void setCreateSeatInfo(String createSeatInfo) {
+        this.createSeatInfo = createSeatInfo;
+    }
     public String createSeat() {
         try {
             createSeatInfo = null;
@@ -185,6 +194,30 @@ public class SeatManager implements Serializable {
             request.removeSeat(newSeatId);
         } catch (Exception e) {
             logger.warning("Problem removing seat in removeSeat.");
+        }
+    }
+    /**
+     * 点击桌子返回菜单
+     */
+    private String seatOrderInfo = null;
+    public String getSeatOrderInfo() {
+        return seatOrderInfo;
+    }
+    public void setSeatOrderInfo(String seatOrderInfo) {
+        this.seatOrderInfo = seatOrderInfo;
+    }
+
+    public List<Dish> getOrderbySeat(String seatId){
+        try{
+            seatOrderInfo = null;
+            if(request.getSeatStatus(seatId)!="已点单"){
+                seatOrderInfo = "当前座位无订单";
+                return null;
+            }else{
+                return request.getDishesbyOrder(request.getOrderIdbySeatIdandStatus(seatId,"未完成"));
+            }
+        }catch(Exception e){
+            throw e;
         }
     }
 }
