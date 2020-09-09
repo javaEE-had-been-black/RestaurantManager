@@ -27,6 +27,7 @@ public class RestaurantManager implements Serializable {
     private String position;
     private String userName;
     private String salary;
+    private List<Dish> dishes;
     private String logInfo;
 
     public String getLogInfo() {
@@ -283,4 +284,29 @@ public class RestaurantManager implements Serializable {
             throw e;
         }
     }
+//---------------点餐-------------
+    /**
+     * 返回所有以点菜品
+     */
+    List<Dish> getAllDishesNow(){
+        return dishes;
+    }
+    /**
+     *添加菜品
+     */
+    void addDishes(Dish dish){
+        dishes.add(dish);
+    }
+    /**
+     * 删除菜品
+     */
+    void removeDish(Dish dish){
+        for(int i =this.dishes.size()-1;i>=0;i--){
+            Dish item= this.dishes.get(i);
+            if(dish.equals(item)){
+                this.dishes.remove(item);
+            }
+        }
+    }
+//-------------------------------
 }
