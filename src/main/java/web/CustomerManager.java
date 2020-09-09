@@ -32,6 +32,82 @@ public class CustomerManager implements Serializable {
     private static final Logger logger = Logger.getLogger("RestaurantManager.web.CustomerManager");
 
 
+    public RequestBean getRequest() {
+        return request;
+    }
+
+    public void setRequest(RequestBean request) {
+        this.request = request;
+    }
+
+    public String getNewCustomerName() {
+        return newCustomerName;
+    }
+
+    public void setNewCustomerName(String newCustomerName) {
+        this.newCustomerName = newCustomerName;
+    }
+
+    public String getNewTelNumber() {
+        return newTelNumber;
+    }
+
+    public void setNewTelNumber(String newTelNumber) {
+        this.newTelNumber = newTelNumber;
+    }
+
+    public String getTelNumber() {
+        return telNumber;
+    }
+
+    public void setTelNumber(String telNumber) {
+        this.telNumber = telNumber;
+    }
+
+    public Integer getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(Integer customerId) {
+        this.customerId = customerId;
+    }
+
+    public Integer getPoints() {
+        return points;
+    }
+
+    public void setPoints(Integer points) {
+        this.points = points;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    public static Logger getLogger() {
+        return logger;
+    }
+
     /**
      * 添加Customer
      */
@@ -137,6 +213,17 @@ public class CustomerManager implements Serializable {
         } catch (Exception e) {
             logger.warning(("Problem getCustomebyDate"));
             throw e;
+        }
+    }
+
+    /**
+     * 删除Customer
+     */
+    public void removeCustomer(){
+        try{
+            request.removeCustomer(customerId);
+        }catch (Exception e){
+            logger.warning("Problem removing customer in removeCustomer.");
         }
     }
 }
