@@ -20,6 +20,7 @@
       <configuration>
         <setting name="validation-enabled" value="true" />
         <datasource-mapping>
+          <factory-entry name="RestaurantManager" />
           <factory-entry name="myapp" />
         </datasource-mapping>
         <naming-strategy-map />

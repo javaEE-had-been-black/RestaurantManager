@@ -13,7 +13,9 @@
 </h:head>
 
 
-<body background="resources/images/background.jpg" style="background-repeat:no-repeat;
+<body
+        background="resources/images/background.jpg"
+        style="background-repeat:no-repeat;
         background-size:100% 100%;
         background-attachment:fixed;">
 
@@ -23,15 +25,32 @@
 
     <div class="Choice">
         <h:form>
-            <h:commandButton class="button" value="个人信息" style="text-align: left" action="personIn"/>
+            <div class="main">
+                <b class="rounder"><b class="r2"></b><b class="r1"></b></b>
+                <div class="content">这是内容!</div>
+                <b class="rounder"><b class="r1"></b><b class="r2"></b></b>
+            </div>
+            <h:commandButton class="button" value="个人中心" style="text-align: left" action="personIn"/>
             <br> </br>
             <br> </br>
-            <br> </br>
-            <h:commandButton class="button" value="我的消息" style="text-align: left" action="Message"/>
-            <br> </br>
+            <h:commandButton class="button" value="餐位管理" style="text-align: left" action="seatManage"/>
             <br> </br>
             <br> </br>
-            <h:commandButton class="button" value="进入管理" style="text-align: left" action="vipManage"/>
+            <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="员工管理" style="text-align: left" action="personnelManage"/>
+
+
         </h:form>
     </div>
 
@@ -40,13 +59,14 @@
 
         <h:form>
             <p>
-                <label class="labelMessage">在这里插入表</label>
+                <label class="labelMessage" >在这里插入表</label>
 
             </p>
             <p>
                 <h:commandButton class="buttonTable" value="本月报表已出，点击查看"
-                                 action="PersonIn"/>
+                                 action="personIn"/>
             </p>
+
 
 
         </h:form>

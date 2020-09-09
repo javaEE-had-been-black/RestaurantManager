@@ -2,13 +2,13 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
 <h:head>
-    <title>RestaurantManager</title>wyf
+    <title>RestaurantManager</title>
     <h:outputStylesheet library="css" name="personInfo.css"/>
 </h:head>
 
@@ -23,21 +23,33 @@ background-attachment:fixed;">
 
     <div class="Choice">
         <h:form>
-            <h:commandButton class="button" value="个人信息" style="text-align: left" action="personIn"/>
+
+
+            <h:commandButton class="button" value="个人中心" style="text-align: left" action="personIn"/>
             <br> </br>
             <br> </br>
-            <br> </br>
-            <h:commandButton class="button" value="我的消息" style="text-align: left" action="Message"/>
-            <br> </br>
+            <h:commandButton class="button" value="餐位管理" style="text-align: left" action="seatManage"/>
             <br> </br>
             <br> </br>
-            <h:commandButton class="button" value="进入管理" style="text-align: left" action="dishManage"/>
+            <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="员工管理" style="text-align: left" action="personnelManage"/>
         </h:form>
     </div>
 
     <div class="Info">
 
-        <img src="resources/images/headpic.jpg" alt=" headpic" height="80" width="78"> </img>
+
         <h:form>
             <p>
                 <label class="labelInfo">姓名</label>
@@ -59,19 +71,20 @@ background-attachment:fixed;">
             <br> </br>
             <p>
 
-                <h:commandButton class="buttonSave" value="保存" id="Save"
-                                 action="personIn"/>
-                &nbsp;
-                <h:commandButton class="buttonSave" value="取消" id="Quit"
-                                 action="personIn"/>
-
+                <h:commandButton class="buttonSave" value="修改资料" id="Change"
+                                 action="personnelManage">
+                </h:commandButton>
+                &nbsp;&nbsp;
+                <h:commandButton class="buttonSave"  value="保存" id="Save"
+                                 action="personnelManage">
+                </h:commandButton>
             </p>
         </h:form>
 
     </div>
     <div class="Save">
         <h:form>
-            <h:commandButton class="buttonKey" value="修改密码" action="PersonIn"/>
+
         </h:form>
     </div>
 </div>

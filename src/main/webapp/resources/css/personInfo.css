@@ -44,10 +44,14 @@
 }
 
 .buttonSave {
-    color: black;
+
+    border-color: cornsilk;
+    background-color: rgba(100, 149, 237, .7);
+    color: whitesmoke;
     border-style: groove;
     border-radius: 10px;
-    width: 100px;
+    width: 150px;
+    height: 35px;
     font-size: 28px;
     style: text-align;
 }
@@ -71,12 +75,9 @@
     style: text-align center;
 }
 
-.picTure {
-    height: 99px;
-    width: 99px;
-    margin: 20px 20px 20px 20px;
-    border: none;
-    background: url("images/headpic.jpg");
-    overflow: hidden;
-    position: relative;
-}
+.main{width:100px;}
+b.rounder{display:block;background: #FFF}
+b.rounder b{display:block;height:1px;overflow: hidden; background: #99cc33;}
+b.r1{margin: 0 1px}
+b.r2{margin: 0 2px}
+.content{height:22px;text-align:center; padding-top:10px; }
