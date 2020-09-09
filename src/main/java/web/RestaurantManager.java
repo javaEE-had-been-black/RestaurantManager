@@ -123,9 +123,12 @@ public class RestaurantManager implements Serializable {
     /**
      * 删除user
      */
-    //TODO 等待张航编写新接口
     public void removeUser() {
-
+        try {
+            request.removeUser(userId);
+        } catch (Exception e) {
+            logger.warning("Remove User Failed,the reason is" + e.toString());
+        }
     }
 
     /**
