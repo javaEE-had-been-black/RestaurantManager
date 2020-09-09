@@ -276,12 +276,12 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-    public Integer getOrderIdbySeatIdandStatus(String seatId,String status){
+    public Integer getOrderIdbySeatIdandStatus(String seatId,String orderStatus){
         try{
-            return em.createNamedQuery("getOrderIdbySeatIdandStatus")
+            return ((Order)em.createNamedQuery("getOrderIdbySeatIdandStatus")
                     .setParameter("seatId",seatId)
-                    .setParameter("status",status)
-                    .getSingleResult().getOrderId();
+                    .setParameter("orderStatus",orderStatus)
+                    .getSingleResult()).getOrderId();
         }catch (Exception e){
             throw new EJBException(e.getMessage());
         }
@@ -295,7 +295,7 @@ public class RequestBean {
         }
     }
 
-    public Seat getSeatbyId(String seatId){
+    public Seat getSeatbySeatId(String seatId){
         try{
             return em.find(Seat.class,seatId);
         }catch (Exception e){

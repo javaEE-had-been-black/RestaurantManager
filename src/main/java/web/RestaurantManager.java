@@ -353,7 +353,7 @@ public class RestaurantManager implements Serializable {
             orderPrice += Integer.parseInt(dish.getDishPrice());
         }
         try {
-            Seat seat = request.getSeatbySeatId();
+            Seat seat = request.getSeatbySeatId(seatId);
             User user = request.getUserbyUserId(userId);
             Customer customer = request.getCustomerbyTelNumber(customerTelNumber);
             request.createOrder(this.startTime, endTime, String.valueOf(orderPrice), discount, comment, seat, user, customer, dishes);

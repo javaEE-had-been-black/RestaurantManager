@@ -23,6 +23,10 @@ import java.util.List;
                 @NamedQuery(
                         name = "getDishesbyOrder",
                         query = "SELECT o.dishes FROM Order o WHERE o.orderId=:orderId"
+                ),
+                @NamedQuery(
+                        name = "getOrderIdbySeatIdandStatus",
+                        query = "SELECT o.orderId FROM Order o WHERE o.seat.seatId=:seatId and o.orderStatus=:orderStatus"
                 )
         }
 )
