@@ -285,6 +285,13 @@ public class RequestBean {
         }
     }
 
+    public Seat getSeatbyId(String seatId){
+        try{
+            return em.find(Seat.class,seatId);
+        }catch (Exception e){
+            throw new EJBException(e.getMessage());
+        }
+    }
     public List<Seat> getSeatsbyStatus(String status) {
         try {
             return em.createNamedQuery("getSeatsbyStatus")
