@@ -279,8 +279,9 @@ public class RequestBean {
     }
     public List<Seat> getSeatsbyStatus(String status){
         try {
-            return em.createNamedQuery("getSeatsbyStatus")
-                    .setParameter("status",status);
+            return  em.createNamedQuery("getSeatsbyStatus")
+                    .setParameter("status",status)
+                    .getResultList();
         }catch (Exception e){
             throw new EJBException(e.getMessage());
         }

@@ -31,7 +31,12 @@ public class SeatManager implements Serializable {
 
     private String seatId;  // 根据此Id查询单个获取的状态
     private String seatsStatus; // 根据这个来获取seats
+    private String seatCapacity;
 
+
+    public String getSeatCapacity() {
+        return seatCapacity;
+    }
     public String getSeatId() {
         return seatId;
     }
@@ -78,42 +83,12 @@ public class SeatManager implements Serializable {
     public void setSeatId(String seatId) {
         this.seatId = seatId;
     }
-
     public void setSeatsStatus(String seatsStatus) {
         this.seatsStatus = seatsStatus;
     }
 
-
-    /**
-     * 创建座位
-     * @param seatId 座位id
-     * @param capacity 座位人数
-     * @param status 座位状态
-     * @param isPrivate 是否是包间
-     */
-    public void createSeat(String seatId,
-                           String capacity,
-                           String status,
-                           boolean isPrivate) {
-        try {
-            request.createSeat(seatId, capacity, status, isPrivate);
-        } catch (Exception e) {
-            logger.warning("creat seat failed ,info is\n" + e.getMessage());
-            throw e;
-        }
-    }
-
-    /**
-     * @param capacity 座位可容纳的人数
-     * @return 一个包含所有符合条件的座位的列表
-     */
-    public List<Seat> getSeatsbyCapacity(String capacity) {
-        try {
-            return request.getSeatsbyCapacity(capacity);
-        } catch (Exception e) {
-            logger.warning("getSeatsbyCapacity failde" + e.getMessage());
-            throw e;
-        }
+    public void setSeatCapacity(String seatCapacity) {
+        this.seatCapacity = seatCapacity;
     }
 
     /**
@@ -125,20 +100,6 @@ public class SeatManager implements Serializable {
             return request.getAllPrivateSeats();
         } catch (Exception e) {
             logger.warning("get all private seats failed,info is \n" + e.getMessage());
-            throw e;
-        }
-    }
-
-    /**
-     * 获取座位状态
-     * @param seatId 座位id
-     * @return 座位的状态
-     */
-    public String getSeatStatus(String seatId) {
-        try {
-            return request.getSeatStatus(seatId);
-        } catch (Exception e) {
-            logger.warning("get sear status failed ,info is\n" + e.getMessage());
             throw e;
         }
     }
@@ -160,17 +121,23 @@ public class SeatManager implements Serializable {
     /**
      * 根据Seat capacity 查询
      */
-    public void getSeatsbyCapacity(){
-
+    public List<Seat> getSeatsbyCapacity(){
+        try{
+            return request.getSeatsbyCapacity(seatCapacity);
+        }catch (Exception e){
+            logger.warning("Problem getSeatsbyCapacity.");
+            throw e;
+        }
     }
     /**
      * 查询所有
      */
-    public void getAllSeats(){
+    public List<Seat> getAllSeats(){
         try{
-            return request.getALlSeats();
+            return request.getAllSeats();
         }catch (Exception e){
-            logger.warning("Problem getSeatStatus.");
+            logger.warning("Problem getAllSeats.");
+            throw e;
         }
     }
 
@@ -182,6 +149,7 @@ public class SeatManager implements Serializable {
             return request.getSeatStatus(seatId);
         }catch (Exception e){
             logger.warning("Problem getSeatStatus.");
+            throw e;
         }
     }
 
@@ -193,7 +161,9 @@ public class SeatManager implements Serializable {
             return request.getSeatsbyStatus(seatsStatus);
         }catch (Exception e){
             logger.warning("Problem getSeatsbyStatus.");
+            throw e;
         }
+
     }
 
     /**
