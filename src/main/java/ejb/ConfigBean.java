@@ -13,6 +13,7 @@ import java.util.logging.Logger;
  */
 @Startup
 @Singleton
+
 public class ConfigBean {
     @EJB
     private RequestBean request;

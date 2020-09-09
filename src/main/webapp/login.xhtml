@@ -12,23 +12,24 @@
     <h:outputStylesheet library="css" name="login.css"/>
 </h:head>
 
-<body background="resources/images/background.jpg"
-      style="background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed;">
+<body background="resources/images/bg.jpg"
+      style="background-repeat:no-repeat;background-size:100% auto;background-attachment:fixed;">
 <div id="loginDiv">
-    <h:form id="form">
-        <h1 style="text-align: center;color:#666666">登陆</h1>
+    <h:form id="form" action="#{restaurantManager.login()}">
+        <h1 style="text-align: center;color:#666666;">登陆</h1>
         <p style="color: #666666;font-size: larger">手机号:
             <h:inputText id="userNname" type="text" value="#{restaurantManager.userId}"/>
             <!--                <label id="name_trip">啦啦啦</label>-->
         </p>
         <!--            这里可以通过value来登录，action-->
-        <p style="color: #666666;font-size: larger">密 码:
+        <p style="color: #666666;font-size: larger">密&nbsp;&nbsp;&nbsp;码:
             <h:inputSecret id="password" type="password" value="#{restaurantManager.password}"/>
             <!--                <label id="password_trip"></label>-->
         </p>
         <div style="text-align: center;margin-top: 30px;"></div>
-        <h:commandButton class="button" value="进入"  action="#{restaurantManager.login}"/>
+        <h:commandButton class="button" value="进入"  action="#{restaurantManager.login()}"/>
     </h:form>
 </div>
 </body>
+
 </html>

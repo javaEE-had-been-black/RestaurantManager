@@ -44,28 +44,27 @@
 
     <div id="seats-content" class="content">
         <div id="seatSearch">
-            <h:form id="searchForm">
-                <select class="listSelect" id="seat-state">
-                    <option value="all">全部</option>
-                    <option value="spare">空余</option>
-                    <option value="service">使用中</option>
-                </select>
+            <h:form id="searchForm" action="#{seatManager.getSeatByType()}">
 
-                <select class="listSelect" id="seat-searchKey">
-                    <option value="type">桌型</option>
-                    <option value="number">桌号</option>
-                    <option value="comment">备注</option>
-                </select>
+                <h:selectOneMenu value="#{seatManager.status}">
+                    <f:selectItem itemValue="全部" itemLabel="全部" />
+                    <f:selectItem itemValue="空余" itemLabel="空余" />
+                    <f:selectItem itemValue="使用中" itemLabel="使用中" />
+                </h:selectOneMenu>
 
-                <h:inputText id="searchKey" type="text"/>
+                <h:selectOneMenu value="#{seatManager.searchType}">
+                    <f:selectItem itemValue="桌型" itemLabel="桌型" />
+                    <f:selectItem itemValue="桌号" itemLabel="桌号" />
+                </h:selectOneMenu>
 
-                <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索"/>
+                <h:inputText id="searchKey" type="text" value="#{seatManager.searchKey}" />
+                <h:commandButton image="resources/images/search.jpg" class="searchButton" />
 
             </h:form>
         </div>
 
         <div class="seats-container">
-            <ui:repeat var="seat" value="#{seatManager.allSeats}">
+            <ui:repeat var="seat" value="#{seatManager.resultSeats}">
                 <div class="seat-container">
                     <img src="resources/images/seat.jpg" style="width: 50px;height: 50px" alt="座位"/><br/>
                     <h:outputText value="#{seat.seatId}"/><br/>
