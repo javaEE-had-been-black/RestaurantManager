@@ -109,7 +109,7 @@ public class SeatManager implements Serializable {
     /**
      * 添加Seat
      */
-    public void createSeat() {
+    public String createSeat() {
         try {
             request.createSeat(newSeatId, newCapacity, newStatus, newIsPrivate);
             this.newSeatId = null;
