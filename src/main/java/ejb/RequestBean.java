@@ -19,6 +19,7 @@ import java.util.logging.Logger;
 public class RequestBean {
     @PersistenceContext
     private EntityManager em;
+
     private static final Logger logger = Logger.getLogger("java.ejb.RequestBean");
 
     /**
