@@ -409,7 +409,7 @@ public class RequestBean {
         }
     }
 
-    public Customer getCustomerbyCustomerId(String customerId) {
+    public Customer getCustomerbyCustomerId(Integer customerId) {
         try {
             return (Customer) em.createNamedQuery("getCustomerbyCustomerId")
                     .setParameter("customerId", customerId);

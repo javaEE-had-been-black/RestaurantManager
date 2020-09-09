@@ -14,7 +14,7 @@ import static javax.persistence.TemporalType.TIMESTAMP;
 @NamedQueries({
         @NamedQuery(
                 name = "getBillsbyDate",
-                query = "SELECT b FROM Bill b WHERE b.itemData>:startTime and b.itemData<:endTime"
+                query = "SELECT b FROM Bill b WHERE b.itemDate>:startTime and b.itemDate<:endTime"
         ),
         @NamedQuery(
                 name = "getBillsbyType",
@@ -31,13 +31,13 @@ import static javax.persistence.TemporalType.TIMESTAMP;
 })
 public class Bill implements Serializable {
     private Integer itemId;
-    private Date itemData;
+    private Date itemDate;
     boolean type;
     String amount;
 
-    public Bill(Integer itemId, Date itemData, boolean type, String amount) {
+    public Bill(Integer itemId, Date itemDate, boolean type, String amount) {
         this.itemId = itemId;
-        this.itemData = itemData;
+        this.itemDate = itemDate;
         this.type = type;
         this.amount = amount;
     }
@@ -51,12 +51,12 @@ public class Bill implements Serializable {
     }
 
     @Temporal(TIMESTAMP)
-    public Date getItemData() {
-        return itemData;
+    public Date getItemDate() {
+        return itemDate;
     }
 
-    public void setItemData(Date itemData) {
-        this.itemData = itemData;
+    public void setItemDate(Date itemDate) {
+        this.itemDate = itemDate;
     }
 
     public void setType(boolean type) {

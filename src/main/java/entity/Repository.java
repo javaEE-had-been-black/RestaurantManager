@@ -7,7 +7,7 @@ import java.io.Serializable;
  * @author zhang
  */
 @Entity
-@Table(name = "RASTAURANT_REPOSITORY")
+@Table(name = "RSTAURANT_REPOSITORY")
 @NamedQueries({
         @NamedQuery(
                 name = "getItemsbyName",
