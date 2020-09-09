@@ -2,11 +2,54 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
 <head>
-    <title>Title</title>
+    <title>会员管理</title>
 </head>
 <body>
+<div class="show">
 
+    <div id="choice" class="choice">
+        <p>座位管理</p>
+        <p>菜谱管理</p>
+        <p>会员管理</p>
+        <p>人事管理</p>
+        <p>报表统计</p>
+        <p>仓库管理</p>
+    </div>
+
+    <div id="dishes-content" class="dishes-content">
+        <div class="dishInput">
+            <input type="text"/>
+            <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索"/>
+        </div>
+
+        <div class="dishes-type">
+            <button onclick="">全部</button>
+            <button onclick="">炒菜</button>
+            <button onclick="">酒水</button>
+            <button onclick="">其他</button>
+        </div>
+
+        <div class="customer-container">
+            <ui:repeat var="customer" value="#{customerManager.allCustomers}">
+                <div class="customer-container">
+                    <img src="#{}" style="width: 100px;height: 100px;border:2px solid grey" alt="菜品图片"></img>
+                    <p>
+                        #{customer.dishName}<br/>
+                        价格:￥#{dish.dishPrice}
+                    </p>
+                </div>
+            </ui:repeat>
+        </div>
+
+    </div>
+
+
+</div>
 </body>
 </html>
