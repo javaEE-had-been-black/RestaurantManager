@@ -22,6 +22,25 @@ import java.util.logging.Logger;
 public class RestaurantManager implements Serializable {
     @EJB
     private RequestBean request;
+    private String userId;
+    private String password;
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
     private static final Logger logger = Logger.getLogger("web.RestaurantManager");
 
     private Integer currentOrder;
@@ -50,6 +69,7 @@ public class RestaurantManager implements Serializable {
 
     public User getUser(String userId) {
         try {
+
             return request.getUserbyUserId(userId);
         } catch (EJBException e) {
             throw e;
@@ -82,15 +102,16 @@ public class RestaurantManager implements Serializable {
     }
 
     /**
-     * @param userId
+     * @param
      * @return 是否运行登录
      */
-    public boolean login(String userId, String password) {
+    public String login() {
         request.createUser("18055548766", "任梦婕", "1234", "外卖小哥", "18055548766", "7777");
 //        if(userId.equals("admin")&&password.equals("1234")){
 //            return true;
 //        }
-        return password.equals(request.getUserbyUserId(userId).getPassword());
+        return "success";
+        //return password.equals(request.getUserbyUserId(userId).getPassword());
     }
     //获取user信息
 

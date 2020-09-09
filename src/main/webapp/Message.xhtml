@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>RestaurantManager</title>
+    <h:outputStylesheet library="css" name="Message.css"/>
+</h:head>
+
+
+<body
+        background="resources/images/background.jpg"
+        style="background-repeat:no-repeat;
+        background-size:100% 100%;
+        background-attachment:fixed;">
+
+<h1 style="text-align: -webkit-left;color:aliceblue">云客来餐厅</h1>
+
+<div class="Show">
+
+    <div class="Choice">
+        <h:form>
+            <h:commandButton class="button" value="个人信息" style="text-align: left"
+                             action="PersonIn"/>
+
+            <br> </br>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="我的餐馆" style="text-align: left"
+                             action="Myrestaurant"/>
+            <br> </br>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="关注的餐馆" style="text-align: left"
+                             action="PersonIn"/>
+            <br> </br>
+            <br> </br>
+            <br> </br>
+            <h:commandButton class="button" value="我的消息" style="text-align: left"
+                             action="Message"/>
+        </h:form>
+    </div>
+
+
+    <div class="Info">
+
+        <h:form>
+            <p>
+                <label class="labelMessage" >在这里插入表</label>
+
+            </p>
+            <p>
+                <h:commandButton class="buttonTable" value="本月报表已出，点击查看"
+                                 action="PersonIn"/>
+            </p>
+
+
+
+        </h:form>
+
+    </div>
+    <div class="HeadPic">
+
+    </div>
+</div>
+</body>
+</html>

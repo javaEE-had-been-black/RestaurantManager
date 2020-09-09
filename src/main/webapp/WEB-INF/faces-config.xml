@@ -4,4 +4,12 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
     http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_3.xsd">
 
+
+    <navigation-rule>
+             <from-view-id>/test.xhtml</from-view-id>
+             <navigation-case>
+                 <from-outcome>success</from-outcome>
+                 <to-view-id>/personInfor.jsp</to-view-id>
+             </navigation-case>
+    </navigation-rule>
 </faces-config>
