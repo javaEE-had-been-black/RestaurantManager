@@ -70,7 +70,7 @@ public class RequestBean {
         }
     }
 
-    public void createOrder(Integer orderId,
+    public void createOrder(
                             Date startTime,
                             Date endTime,
                             String orderPrice,
@@ -78,10 +78,11 @@ public class RequestBean {
                             String comment,
                             Seat seat,
                             User user,
-                            Customer customer) {
+                            Customer customer,
+                            List<Dish> dishes) {
         try {
-            Order order = new Order(orderId, startTime, endTime, orderPrice, discount,
-                    comment, seat, user, customer
+            Order order = new Order(startTime, endTime, orderPrice, discount,
+                    comment, seat, user, customer,dishes
             );
             em.persist(order);
         } catch (Exception e) {

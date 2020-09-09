@@ -9,6 +9,7 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -27,7 +28,13 @@ public class RestaurantManager implements Serializable {
     private String position;
     private String userName;
     private String salary;
+    private Date startTime;
+    private List<Dish> dishes;
     private String logInfo;
+
+    public RestaurantManager() {
+    }
+
 
     public String getLogInfo() {
         return logInfo;
@@ -297,4 +304,66 @@ public class RestaurantManager implements Serializable {
             throw e;
         }
     }
+//---------------点餐-------------
+
+    /**
+     * 开始点餐
+     */
+    void startOrder() {
+//        SimpleDateFormat sdf = new SimpleDateFormat();
+//        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
+        this.startTime=new Date();
+    }
+
+    /**
+     * 返回所有以点菜品
+     */
+    List<Dish> getAllDishesNow() {
+        return dishes;
+    }
+
+    /**
+     * 添加菜品
+     */
+    void addDishes(Dish dish) {
+        dishes.add(dish);
+    }
+
+    /**
+     * 删除菜品
+     */
+    void removeDish(Dish dish) {
+        for (int i = this.dishes.size() - 1; i >= 0; i--) {
+            Dish item = this.dishes.get(i);
+            if (dish.equals(item)) {
+                this.dishes.remove(item);
+            }
+        }
+    }
+
+    /**
+     * 创建订单
+     */
+    String newOrder(Integer discount, String comment, String seatId, String userId, String customerTelNumber) {
+//        SimpleDateFormat sdf = new SimpleDateFormat();
+//        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
+        Date endTime=new Date();
+        int orderPrice = 0;
+        for (Dish dish : this.dishes) {
+            orderPrice += Integer.parseInt(dish.getDishPrice());
+        }
+        try {
+            Seat seat = request.getSeatbySeatId();
+            User user = request.getUserbyUserId(userId);
+            Customer customer = request.getCustomerbyTelNumber(customerTelNumber);
+            request.createOrder(this.startTime, endTime, String.valueOf(orderPrice), discount, comment, seat, user, customer, dishes);
+            this.startTime = null;
+            this.dishes.clear();
+            return "success!";
+        } catch (Exception e) {
+            logger.warning("Problem in create new Order.");
+            return "fail!";
+        }
+    }
+//-------------------------------
 }
