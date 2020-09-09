@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<h:head>
+    <title>RestaurantManager</title>
+    <h:outputStylesheet library="css" name="management.css"/>
+</h:head>
+<body background="resources/images/background.jpg"
+      style="background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed;">
+
+
+<div class="show">
+
+    <div id="choice" class="choice">
+        <p>座位管理</p>
+        <p>菜谱管理</p>
+        <p>会员管理</p>
+        <p>人事管理</p>
+        <p>报表统计</p>
+        <p>仓库管理</p>
+    </div>
+
+    <div id="seats-content" class="content">
+        <div id="seatSearch">
+            <h:form id="searchForm">
+                <select class="listSelect" id="seat-state">
+                    <option value="all">全部</option>
+                    <option value="spare">空余</option>
+                    <option value="service">使用中</option>
+                </select>
+
+                <select class="listSelect" id="seat-searchKey">
+                    <option value="type">桌型</option>
+                    <option value="number">桌号</option>
+                    <option value="comment">备注</option>
+                </select>
+
+                <h:inputText id="searchKey" type="text"/>
+
+                <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索"/>
+
+            </h:form>
+        </div>
+
+        <div class="seats-container">
+            <ui:repeat var="seat" value="#{seatManager.allSeats}">
+            <div class="seat-container">
+                <img src="resources/images/seat.jpg" style="width: 50px;height: 50px" alt="座位"/><br/>
+                <h:outputText value="#{seat.seatId}"/><br/>
+                <h:outputText value="#{seat.capacity}"/><br/>
+                <h:outputText value="#{seat.status}"/>
+            </div>
+            </ui:repeat>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
