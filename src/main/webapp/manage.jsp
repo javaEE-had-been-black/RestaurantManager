@@ -9,7 +9,7 @@
 
 <html>
 <head>
-    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/management.css"/>
+    <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/resources/css/dishManage.css"/>
     <title>manage</title>
 </head>
 <body background="resources/images/background.jpg"

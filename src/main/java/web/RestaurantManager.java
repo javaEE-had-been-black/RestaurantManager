@@ -192,6 +192,15 @@ public class RestaurantManager implements Serializable {
         }
     }
 
+
+    public List<Dish> getAllDishes() {
+        try {
+            return request.getAllDishes();
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
     /**
      * DishinOrder
      */

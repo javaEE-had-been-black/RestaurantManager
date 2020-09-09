@@ -9,7 +9,7 @@
 
 <h:head>
     <title>RestaurantManager</title>
-    <h:outputStylesheet library="css" name="management.css"/>
+    <h:outputStylesheet library="css" name="seatManage.css"/>
 </h:head>
 <body background="resources/images/background.jpg"
       style="background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed;">
@@ -53,14 +53,14 @@
             <div class="seat-container">
                 <img src="resources/images/seat.jpg" style="width: 50px;height: 50px" alt="座位"/><br/>
                 <h:outputText value="#{seat.seatId}"/><br/>
-                <h:outputText value="#{seat.capacity}"/><br/>
+                <h:outputText value="#{seat.capacity}人"/><br/>
                 <h:outputText value="#{seat.status}"/>
             </div>
             </ui:repeat>
         </div>
     </div>
-</div>
 
+</div>
 
 </body>
 </html>
