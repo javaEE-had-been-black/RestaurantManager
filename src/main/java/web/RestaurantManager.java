@@ -134,7 +134,10 @@ public class RestaurantManager implements Serializable {
      */
     public String login() {
         try {
-            if (password.equals(request.getUserbyUserId(userId).getPassword())) {
+            if (userId==null||password == null){
+                return "请输入账号和密码!!";
+            }
+            else if (password.equals(request.getUserbyUserId(userId).getPassword())) {
                 User user = request.getUserbyUserId(userId);
                 userId = user.getUserId();
                 userName = user.getUserName();
@@ -142,12 +145,13 @@ public class RestaurantManager implements Serializable {
                 position = user.getPosition();
                 salary = user.getSalary();
                 return "success";
+            }else{
+                return "密码错误或账号不存在!";
             }
         } catch (Exception ex) {
             ex.printStackTrace();
             return "fail";
         }
-        return "fail";
     }
     //获取user信息
 

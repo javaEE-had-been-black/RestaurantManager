@@ -63,7 +63,7 @@ public class SeatManager implements Serializable {
     }
 
 
-    // -----------------------------------//
+    // -----------------------------------------------------------------------------------
     public void setNewSeatId(String newSeatId) {
         this.newSeatId = newSeatId;
     }
@@ -169,7 +169,6 @@ public class SeatManager implements Serializable {
         }
 
     }
-
     /**
      * 删除Seat
      */
