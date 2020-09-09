@@ -9,13 +9,13 @@
 
 <%
     int type=0;
-    String typeString=request.getParameter("type");
-    if(typeString.equals("")){
-        type=1;
-    }
-    else {
-        type=Integer.getInteger(typeString);
-    }
+//    String typeString=request.getParameter("type");
+//    if(typeString.equals("")){
+//        type=1;
+//    }
+//    else {
+//        type=Integer.getInteger(typeString);
+//    }
 %>
 
 
