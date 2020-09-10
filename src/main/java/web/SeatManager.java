@@ -203,20 +203,17 @@ public class SeatManager implements Serializable {
 
     public void getSeatByType() {
 
-        if (searchKey.equals("")) {
+        if ("".equals(searchKey)) {
             resultSeats = getAllSeats();
             return;
         }
-        if (searchType.equals("桌号")) {
+        if ("桌号".equals(searchType)) {
             List<Seat> seats = new LinkedList<>();
             seats.add(getSeatbyId());
             resultSeats = seats;
-        } else if (searchType.equals("桌型")) {
+        } else if ("桌型".equals(searchType)) {
             resultSeats = getSeatsbyCapacity();
-        } else {
-            return;
         }
-
     }
 
     /**
