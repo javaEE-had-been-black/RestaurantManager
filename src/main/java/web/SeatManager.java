@@ -78,6 +78,8 @@ public class SeatManager implements Serializable {
     private String searchType;  //查询的方式
     private String searchKey;    //要查询的桌号
     private List<Seat> resultSeats;
+    private Seat seat;
+    private String logInfo;
 
 
 //    public String getSeatCapacity() {
@@ -133,10 +135,6 @@ public class SeatManager implements Serializable {
     public void setSeatsStatus(String seatsStatus) {
         this.seatsStatus = seatsStatus;
     }
-
-//    public void setSeatCapacity(String seatCapacity) {
-//        this.seatCapacity = seatCapacity;
-//    }
 
     /**
      * 获得所有包厢
@@ -244,18 +242,6 @@ public class SeatManager implements Serializable {
     }
 
     /**
-     * 查询单个Seat状态
-     */
-//    public String getStatus() {
-//        try {
-//            return request.getSeatStatus(seatId);
-//        } catch (Exception e) {
-//            logger.warning("Problem getSeatStatus.");
-//            throw e;
-//        }
-//    }
-
-    /**
      * 根据状态查询所有seat
      */
     public List<Seat> getSeatsbyStatus() {
@@ -295,7 +281,7 @@ public class SeatManager implements Serializable {
     public List<Dish> getOrderbySeat(String seatId) {
         try {
             seatOrderInfo = null;
-            if (request.getSeatStatus(seatId) != "已点单") {
+            if (!"已点单".equals(request.getSeatStatus(seatId))) {
                 seatOrderInfo = "当前座位无订单";
                 return null;
             } else {
@@ -308,16 +294,14 @@ public class SeatManager implements Serializable {
 
     public Seat getSeatbyId() {
         try {
-            return request.getSeatbySeatId(searchKey);
+            seat = request.getSeatbySeatId(searchKey);
+            if (seat.getSeatId() == null) {
+                logInfo = "找不到座位";
+                seat = null;
+            }
+            return seat;
         } catch (Exception e) {
-            throw e;
-        }
-    }
-
-    public Seat getSeatbySeatId(String searchKey) {
-        try {
-            return request.getSeatbySeatId(searchKey);
-        } catch (Exception e) {
+            logInfo = "查找时出错";
             throw e;
         }
     }
