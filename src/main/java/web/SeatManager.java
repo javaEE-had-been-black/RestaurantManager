@@ -82,9 +82,21 @@ public class SeatManager implements Serializable {
     private String logInfo;
 
 
-//    public String getSeatCapacity() {
-//        return seatCapacity;
-//    }
+    public Seat getSeat() {
+        return seat;
+    }
+
+    public void setSeat(Seat seat) {
+        this.seat = seat;
+    }
+
+    public String getLogInfo() {
+        return logInfo;
+    }
+
+    public void setLogInfo(String logInfo) {
+        this.logInfo = logInfo;
+    }
 
     public String getSeatId() {
         return seatId;
@@ -181,6 +193,18 @@ public class SeatManager implements Serializable {
             logger.warning("Problem creating seat in createSeat.");
             return "fail";
         }
+    }
+
+    public void changeSeat(){
+        Seat seat = request.getSeatbySeatId(searchKey);
+        if(request.getSeatbySeatId(newSeatId)!=null){
+            logInfo="该id已存在";
+            return;
+        }
+        seat.setSeatId(seatId);
+        seat.setCapacity(newCapacity);
+        seat.setStatus(newStatus);
+        seat.setPrivate(newIsPrivate);
     }
 
     public void changeSeatStatus() {
