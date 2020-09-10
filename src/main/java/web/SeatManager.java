@@ -5,12 +5,9 @@ import entity.Dish;
 import entity.Seat;
 
 import javax.ejb.EJB;
-import javax.ejb.EJBException;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
-import javax.faces.component.UIParameter;
 import javax.inject.Named;
-import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
@@ -188,6 +185,11 @@ public class SeatManager implements Serializable {
         }
     }
 
+    public void changeSeatStatus() {
+        Seat seat = request.getSeatbySeatId(searchKey);
+        seat.setStatus(seatsStatus);
+    }
+
 
     public List<Seat> getResultSeats() {
 //        if(resultSeats==null){
@@ -293,14 +295,6 @@ public class SeatManager implements Serializable {
     }
 
     public Seat getSeatbyId() {
-        try {
-            return request.getSeatbySeatId(searchKey);
-        } catch (Exception e) {
-            throw e;
-        }
-    }
-
-    public Seat getSeatbyId(String searchKey) {
         try {
             return request.getSeatbySeatId(searchKey);
         } catch (Exception e) {
