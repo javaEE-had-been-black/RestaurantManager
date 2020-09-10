@@ -9,7 +9,6 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.annotation.FacesConfig;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
@@ -169,8 +168,10 @@ public class RestaurantManager implements Serializable {
     public String login() {
         try {
             if (userId == null || password == null) {
-                logInfo = "请输入账号和密码!!";
+                logInfo = "请输入账号或密码";
                 return "fail";
+            } else if (request.getUserbyUserId(userId).getUserId() == null) {
+                return "账号不存在";
             } else if (password.equals(request.getUserbyUserId(userId).getPassword())) {
                 User user = request.getUserbyUserId(userId);
                 userId = user.getUserId();
@@ -181,7 +182,7 @@ public class RestaurantManager implements Serializable {
                 logInfo = "";
                 return "success";
             } else {
-                logInfo = "密码错误或账号不存在!";
+                logInfo = "密码错误或账号不存在";
                 return "fail";
             }
         } catch (Exception ex) {
