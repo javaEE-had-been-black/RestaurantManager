@@ -1,5 +1,6 @@
 package ejb;
 
+import com.sun.org.apache.xpath.internal.operations.Or;
 import entity.*;
 
 import javax.ejb.EJBException;
@@ -129,8 +130,8 @@ public class RequestBean {
      */
     public void removeUser(String userId) {
         try {
-            User user = em.find(User.class, userId);
-            em.remove(user);
+            em.createNamedQuery("removeUser")
+                        .getParameter("userId",userId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -138,8 +139,8 @@ public class RequestBean {
 
     public void removeSeat(String seatId) {
         try {
-            Seat seat = em.find(Seat.class, seatId);
-            em.remove(seat);
+            em.createNamedQuery("removeSeat")
+                    .getParameter("seatId",seatId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -147,8 +148,8 @@ public class RequestBean {
 
     public void removeDish(String dishId) {
         try {
-            Dish dish = em.find(Dish.class, dishId);
-            em.remove(dish);
+            em.createNamedQuery("removeDish")
+                    .getParameter("dishId",dishId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -156,8 +157,8 @@ public class RequestBean {
 
     public void removeCustomer(Integer customerId) {
         try {
-            Customer customer = em.find(Customer.class, customerId);
-            em.remove(customer);
+            em.createNamedQuery("removeCustomer")
+                    .getParameter("customerId",customerId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -165,8 +166,8 @@ public class RequestBean {
 
     public void removeOrder(Integer orderId) {
         try {
-            Order order = em.find(Order.class, orderId);
-            em.remove(order);
+            em.createNamedQuery("removeOrder")
+                    .getParameter("orderId", orderId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -174,8 +175,8 @@ public class RequestBean {
 
     public void removeBill(Integer itemId) {
         try {
-            Bill bill = em.find(Bill.class, itemId);
-            em.remove(bill);
+            em.createNamedQuery("removeBill")
+                    .getParameter("itemId",itemId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -183,8 +184,8 @@ public class RequestBean {
 
     public void removeRepository(Integer itemId) {
         try {
-            Repository repository = em.find(Repository.class, itemId);
-            em.remove(repository);
+            em.createNamedQuery("removeRepository")
+                    .getParameter("itemId",itemId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -299,7 +300,9 @@ public class RequestBean {
 
     public Seat getSeatbySeatId(String seatId) {
         try {
-            return em.find(Seat.class, seatId);
+            return (Seat) em.createNamedQuery("getSeatbySeatId")
+                    .setParameter("seatId",seatId)
+                    .getSingleResult();
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
