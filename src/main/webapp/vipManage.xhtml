@@ -16,6 +16,38 @@
 <body background="resources/images/background.jpg" style="background-repeat:no-repeat;
         background-size:100% 100%;
         background-attachment:fixed;">
+<script>
+    function showAddVip(){
+        var div=document.getElementById("create-vip")
+        div.style.visibility = "visible";
+    }
+
+    function hiddenAddVip(){
+        var div=document.getElementById("create-vip")
+        div.style.visibility = "hidden";
+    }
+
+
+</script>
+
+
+<div id="create-vip" style="visibility: hidden" class="create-vip">
+    <h:form>
+        <p style="color: #666666;font-size: larger">姓名:
+            <h:inputText type="text" value="#{customerManager.newCustomerName}"/>
+        </p>
+
+        <p style="color: #666666;font-size: larger">电话:
+            <h:inputText type="text" value="#{customerManager.newTelNumber}"/>
+        </p>
+
+        <div style="text-align: center;margin-top: 30px;"></div>
+        <h:commandButton class="operation-button" value="确认" onclick="hiddenAddVip()" action="#{customerManager.creatCustomer()}"/>
+        <h:commandButton class="operation-button" value="取消" onclick="hiddenAddVip()"/>
+        <p style="color: #ff0000">#{}</p>
+    </h:form>
+</div>
+
 <div class="show">
 
     <div id="choice" class="choice">
@@ -27,6 +59,7 @@
             <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/>
             <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
             <h:commandButton class="button" value="员工管理" style="text-align: left" action="personnelManage"/>
+
         </h:form>
     </div>
 
@@ -37,6 +70,7 @@
             <img src="resources/images/search.jpg" style="width: 30px;height: 30px" alt="搜索"/>
             <button>积分</button>
             <button>日期</button>
+            <input type="button" class="button" onclick="showAddVip()" value="添加会员"></input>
         </div>
 
         <table>
@@ -45,7 +79,6 @@
                 <th>姓名</th>
                 <th>积分</th>
                 <th>加入时间</th>
-                <th>test</th>
             </tr>
 
             <ui:repeat var="customer" value="#{customerManager.allCustomers}">

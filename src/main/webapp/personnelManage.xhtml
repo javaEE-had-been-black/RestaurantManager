@@ -15,6 +15,24 @@
         background-size:100% 100%;
         background-attachment:fixed;">
 
+<div id="create-vip" style="visibility: hidden" class="create-vip">
+    <h:form>
+        <p style="color: #666666;font-size: larger">姓名:
+            <h:inputText type="text" value="#{customerManager.newCustomerName}"/>
+        </p>
+
+        <p style="color: #666666;font-size: larger">电话:
+            <h:inputText type="text" value="#{customerManager.newTelNumber}"/>
+        </p>
+
+        <div style="text-align: center;margin-top: 30px;"></div>
+        <h:commandButton class="operation-button" value="确认" onclick="hiddenAddVip()" action="#{customerManager.creatCustomer()}"/>
+        <h:commandButton class="operation-button" value="取消" onclick="hiddenAddVip()"/>
+<!--        <p style="color: #ff0000">#{restaurantManager}</p>-->
+    </h:form>
+</div>
+
+
 <div class="show">
 
     <div id="choice" class="choice">
