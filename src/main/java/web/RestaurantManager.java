@@ -18,6 +18,7 @@ import java.util.logging.Logger;
  */
 @Named
 @SessionScoped
+@SuppressWarnings("unused")
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 public class RestaurantManager implements Serializable {
     @EJB
