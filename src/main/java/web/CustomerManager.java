@@ -29,6 +29,16 @@ public class CustomerManager implements Serializable {
     private String customerName;
     private Date startTime;
     private Date endTime;
+    private String logInfo;
+
+    public String getLogInfo() {
+        return logInfo;
+    }
+
+    public void setLogInfo(String logInfo) {
+        this.logInfo = logInfo;
+    }
+
     private static final Logger logger = Logger.getLogger("RestaurantManager.web.CustomerManager");
 
 
@@ -116,10 +126,12 @@ public class CustomerManager implements Serializable {
             request.createCustomer(newTelNumber, newCustomerName);
             this.newCustomerName = null;
             this.newTelNumber = null;
-            return "创建客户成功";
+            logInfo = "创建用户成功";
+            return "success";
         } catch (Exception e) {
             logger.warning("Problem creating seat in createSeat.");
-            return "创建客户失败";
+            logInfo = "创建用户失败";
+            return "fail";
         }
     }
 
