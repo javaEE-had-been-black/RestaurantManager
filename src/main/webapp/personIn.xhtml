@@ -15,7 +15,7 @@
 
 <body background="resources/images/background.jpg" style="background-repeat:no-repeat;
 background-size:100% 100%;
-background-attachment:fixed;">
+background-attachment:fixed;">2
 <script>
     var isDisabled = false;
 
@@ -30,31 +30,24 @@ background-attachment:fixed;">
     }
 </script>
 
+<h1 style="text-align: -webkit-left;color:aliceblue">云客来餐厅</h1>
 
 <div class="Show">
 
     <div class="Choice">
         <h:form>
-            <p>
-            <h:commandButton class="button" value="个人中心" style="text-align: left" action="personIn"/></p>
-            <p>
-            <h:commandButton class="button" value="餐位管理" style="text-align: left" action="seatManage"/></p>
-            <p>
-            <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/></p>
-            <p>
-            <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/></p>
-            <p>
-            <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/></p>
-            <p>
-            <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/></p>
-            <p>
-            <h:commandButton class="button" value="员工管理" style="text-align: left" action="personnelManage"/></p>
 
+            <h:commandButton class="button" value="个人中心" style="text-align: left" action="personIn"/>
+            <h:commandButton class="button" value="餐位管理" style="text-align: left" action="seatManage"/>
+            <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
+            <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
+            <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/>
+            <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
+            <h:commandButton class="button" value="员工管理" style="text-align: left" action="personnelManage"/>
         </h:form>
     </div>
 
     <div class="Info">
-
 
         <h:form>
             <p>
@@ -82,6 +75,12 @@ background-attachment:fixed;">
             <p>
                 <h:commandButton class="buttonSave" value="修改资料" id="Change"
                                action="showKey()" >
+
+                </h:commandButton>
+                &nbsp;&nbsp;
+                <h:commandButton class="buttonSave"  value="保存" id="Save"
+                                 action="personnelManage">
+
                 </h:commandButton>
             </p>
         </h:form>

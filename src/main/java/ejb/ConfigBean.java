@@ -4,8 +4,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.ejb.EJB;
 import javax.ejb.Startup;
-import javax.faces.component.FacesComponent;
-import javax.inject.Singleton;
+import javax.ejb.Singleton;
+import java.util.Date;
 import java.util.logging.Logger;
 
 /**
@@ -17,13 +17,29 @@ import java.util.logging.Logger;
 public class ConfigBean {
     @EJB
     private RequestBean request;
+
+    private String testMassage;
+
+    public String getTestMassage() {
+        return testMassage;
+    }
+
+    public void setTestMassage(String testMassage) {
+        this.testMassage = testMassage;
+    }
+
     private static final Logger logger = Logger.getLogger("java.ejb.ConfigBean");
 
     @PostConstruct
     public void createData() {
-        logger.warning("NOW RUNNING!!!!!!!!!!!!!!!");
-        request.createUser("18055548766", "任梦婕", "1234", "外卖小哥", "18055548766", "7777");
-        request.createUser("18055548765", "任梦婕", "1234", "外卖小哥", "18055548766", "7777");
+
+        request.createSeat("2","3","3",false);
+        request.createUser("33","3","3","3","e","d");
+        request.createCustomer("df","df");
+        request.createBill(1,new Date(),false,"d");
+        request.createDish("d","d","d","d","d");
+        request.createRepository(1,"d","d","d");
+
     }
 
     @PreDestroy

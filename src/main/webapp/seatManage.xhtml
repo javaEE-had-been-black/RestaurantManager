@@ -60,13 +60,13 @@
         </p>
 
         <p style="color: #666666;font-size: larger">容&nbsp;&nbsp;&nbsp;量:
-            <h:inputSecret type="text" value="#{seatManager.newCapacity}"/>
+            <h:inputText type="text" value="#{seatManager.newCapacity}"/>
         </p>
 
         <div style="text-align: center;margin-top: 30px;"></div>
-        <h:commandButton class="operation-button" value="确认" action="#{seatManager.createSeat}"/>
+        <h:commandButton class="operation-button" value="确认" onclick="hiddenCreateSeat()" action="#{seatManager.createSeat}"/>
         <h:commandButton class="operation-button" value="取消" onclick="hiddenCreateSeat()"/>
-        <p style="color: #ff0000">#{restaurantManager.logInfo}</p>
+        <p style="color: #ff0000">#{seatManager.createSeatInfo}</p>
     </h:form>
 </div>
 
