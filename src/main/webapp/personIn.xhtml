@@ -2,7 +2,7 @@
 <!DOCTYPE html
         PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"
+<html xmlns="http://www.w3.org/1999/xhtml"  xml:lang="en" lang="en"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
@@ -13,26 +13,85 @@
 </h:head>
 
 
-<body>
-<div class="up-div">
-    <h:commandButton image="resources/images/search.jpg" styleClass="listButton" actionListener=""></h:commandButton>
-    <h:commandButton styleClass="logout-button" value="logout" action="login"></h:commandButton>
-</div>
+<body background="resources/images/background.jpg" style="background-repeat:no-repeat;
+background-size:100% 100%;
+background-attachment:fixed;">
+<script>
+    var isDisabled = false;
 
-<div class="context">
-    <div class="operationList">
-        <img src="" alt="头像"/>
+    function showKey() {
+        var show = document.getElementById("newPassword");
+        show.style.visibility = "visible";
+    }
+    function hiddenKey() {
+        var show = document.getElementById("newPassword");
+        show.style.visibility = "hidden"
 
+    }
+</script>
+
+
+<div class="Show">
+
+    <div class="Choice">
+        <h:form>
+            <p>
+            <h:commandButton class="button" value="个人中心" style="text-align: left" action="personIn"/></p>
+            <p>
+            <h:commandButton class="button" value="餐位管理" style="text-align: left" action="seatManage"/></p>
+            <p>
+            <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/></p>
+            <p>
+            <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/></p>
+            <p>
+            <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/></p>
+            <p>
+            <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/></p>
+            <p>
+            <h:commandButton class="button" value="员工管理" style="text-align: left" action="personnelManage"/></p>
+
+        </h:form>
     </div>
 
+    <div class="Info">
 
-    <div class="infor-context">
+
+        <h:form>
+            <p>
+                <label class="labelInfo">姓名</label>
+                <h:inputText class="labelMain" id="userFn" value="#{restaurantManager.userName}" type="text"/>
+            </p>
+
+            <p>
+                <label class="labelInfo">电话</label>
+                <h:inputText class="labelMain" id="mobile" value="#{restaurantManager.userId}" type="text"/>
+            </p>
+
+            <p>
+                <label class="labelInfo">密码</label>
+                <h:inputText class="labelMain" id="oldKey" value="#{restaurantManager.password}" type="password" />
+            </p>
+
+            <p style="visibility: hidden" id="newPassword">
+                <label class="labelInfo">新密码</label>
+                <h:inputText class="labelMain" id="newKey" value="#{restaurantManager.password}" type="password" />
+            </p>
+
+            <br> </br>
+            <br> </br>
+            <p>
+                <h:commandButton class="buttonSave" value="修改资料" id="Change"
+                               action="showKey()" >
+                </h:commandButton>
+            </p>
+        </h:form>
 
     </div>
+    <div class="Save">
+        <h:form>
 
+        </h:form>
+    </div>
 </div>
-
-
 </body>
-
 </html>
