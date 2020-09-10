@@ -29,6 +29,10 @@ import java.io.Serializable;
                 name = "getAllUsers",
                 query = "SELECT u FROM User u"
         ),
+        @NamedQuery(
+                name="removeUser",
+                query = "DELETE FROM User u WHERE u.userId=:userId"
+        )
 })
 
 public class User implements Serializable {

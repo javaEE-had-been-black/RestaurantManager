@@ -37,6 +37,10 @@ import java.util.Date;
         @NamedQuery(
                 name = "getCustomersbyDate",
                 query = "SELECT c FROM Customer c WHERE c.addTime>:startTime and c.addTime<:endTime"
+        ),
+        @NamedQuery(
+                name="removeCustomer",
+                query = "DELETE FROM Customer c WHERE c.customerId=:customerId"
         )
 })
 public class Customer implements Serializable {

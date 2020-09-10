@@ -131,7 +131,7 @@ public class RequestBean {
     public void removeUser(String userId) {
         try {
             em.createNamedQuery("removeUser")
-                        .getParameter("userId",userId);
+                        .setParameter("userId",userId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -140,7 +140,7 @@ public class RequestBean {
     public void removeSeat(String seatId) {
         try {
             em.createNamedQuery("removeSeat")
-                    .getParameter("seatId",seatId);
+                    .setParameter("seatId",seatId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -149,7 +149,7 @@ public class RequestBean {
     public void removeDish(String dishId) {
         try {
             em.createNamedQuery("removeDish")
-                    .getParameter("dishId",dishId);
+                    .setParameter("dishId",dishId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -158,7 +158,7 @@ public class RequestBean {
     public void removeCustomer(Integer customerId) {
         try {
             em.createNamedQuery("removeCustomer")
-                    .getParameter("customerId",customerId);
+                    .setParameter("customerId",customerId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -167,7 +167,7 @@ public class RequestBean {
     public void removeOrder(Integer orderId) {
         try {
             em.createNamedQuery("removeOrder")
-                    .getParameter("orderId", orderId);
+                    .setParameter("orderId", orderId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -176,16 +176,16 @@ public class RequestBean {
     public void removeBill(Integer itemId) {
         try {
             em.createNamedQuery("removeBill")
-                    .getParameter("itemId",itemId);
+                    .setParameter("itemId",itemId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
 
-    public void removeRepository(Integer itemId) {
+    public void removeItem(Integer itemId) {
         try {
-            em.createNamedQuery("removeRepository")
-                    .getParameter("itemId",itemId);
+            em.createNamedQuery("removeItem")
+                    .setParameter("itemId",itemId);
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }

@@ -13,26 +13,67 @@
 </h:head>
 
 
-<body>
-<div class="up-div">
-    <h:commandButton image="resources/images/search.jpg" styleClass="listButton" actionListener=""></h:commandButton>
-    <h:commandButton styleClass="logout-button" value="logout" action="login"></h:commandButton>
-</div>
+<body background="resources/images/background.jpg" style="background-repeat:no-repeat;
+background-size:100% 100%;
+background-attachment:fixed;">
 
-<div class="context">
-    <div class="operationList">
-        <img src="" alt="头像"/>
+<h1 style="text-align: -webkit-left;color:aliceblue">云客来餐厅</h1>
 
+<div class="Show">
+
+    <div class="Choice">
+        <h:form>
+
+            <h:commandButton class="button" value="个人中心" style="text-align: left" action="personIn"/>
+            <h:commandButton class="button" value="餐位管理" style="text-align: left" action="seatManage"/>
+            <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
+            <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
+            <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/>
+            <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
+            <h:commandButton class="button" value="员工管理" style="text-align: left" action="personnelManage"/>
+        </h:form>
     </div>
 
+    <div class="Info">
 
-    <div class="infor-context">
+
+        <h:form>
+            <p>
+                <label class="labelInfo">姓名</label>
+                <h:inputText class="labelMain" id="userFn" value="#{restaurantManager.userName}" type="text"/>
+            </p>
+
+            <p>
+                <label class="labelInfo">电话</label>
+                <h:inputText class="labelMain" id="mobile" value="#{restaurantManager.userId}" type="text"/>
+            </p>
+
+            <p>
+                <label class="labelInfo">密码</label>
+                <h:inputText class="labelMain" id="Key" value="#{restaurantManager.password}" type="text"/>
+            </p>
+
+
+            <br> </br>
+            <br> </br>
+            <p>
+
+                <h:commandButton class="buttonSave" value="修改资料" id="Change"
+                                 action="personnelManage">
+                </h:commandButton>
+                &nbsp;&nbsp;
+                <h:commandButton class="buttonSave"  value="保存" id="Save"
+                                 action="personnelManage">
+                </h:commandButton>
+            </p>
+        </h:form>
 
     </div>
+    <div class="Save">
+        <h:form>
 
+        </h:form>
+    </div>
 </div>
-
-
 </body>
-
 </html>
