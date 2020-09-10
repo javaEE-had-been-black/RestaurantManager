@@ -1,0 +1,72 @@
+
+.Show
+{
+    display: flex;
+    flex-direction:row;
+}
+.Choice
+{
+    display: flex;
+    flex-direction:column;
+}
+
+.Info
+{
+    margin-left:300px;
+    margin-top:100px;
+    display: flex;
+    flex-direction: column;
+}
+.Save{
+    display: flex;
+    flex-direction:column;
+}
+
+
+.labelMain{
+
+    background-color: cornsilk;
+    font-size: 28px;
+    width: 180px;
+    height: 30px;
+    style:text-align  center;
+}
+.button {
+    border-color: cornsilk;
+    background-color: rgba(100, 149, 237, .7);
+    color: whitesmoke;
+    border-style: groove;
+    border-radius: 10px;
+    width: 180px;
+    height: 55px;
+    font-size: 32px;
+    style:text-align;
+}
+
+.buttonSave
+{
+    color: black;
+    border-style: groove;
+    border-radius: 10px;
+    width: 100px;
+    font-size:28px;
+    style:text-align;
+}
+.buttonKey
+{
+    margin-left:100px;
+    color: black;
+    border-style: groove;
+    border-radius: 10px;
+    width: 140px;
+    font-size:28px;
+    style:text-align;
+}
+.labelInfo{
+
+    font-size: 20px;
+    color: black;
+    width: 180px;
+    height: 30px;
+    style:text-align  center;
+}

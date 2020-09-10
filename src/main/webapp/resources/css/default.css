@@ -1,0 +1,20 @@
+.Show {
+    display: flex;
+    flex-direction: row;
+}
+
+.Choice {
+    display: flex;
+    flex-direction: column;
+}
+.button {
+    border-color: cornsilk;
+    background-color: rgba(100, 149, 237, .7);
+    color: aliceblue;
+    border-style: hidden;
+    border-radius: 5px;
+    width: 100px;
+    height: 31px;
+    font-size: 16px;
+    float: right;
+}
