@@ -27,6 +27,10 @@ import java.util.List;
                 @NamedQuery(
                         name = "getOrderIdbySeatIdandStatus",
                         query = "SELECT o.orderId FROM Order o WHERE o.seat.seatId=:seatId and o.orderStatus=:orderStatus"
+                ),
+                @NamedQuery(
+                        name = "removeOrder",
+                        query = "DELETE FROM Order o WHERE o.orderId=:orderId"
                 )
         }
 )

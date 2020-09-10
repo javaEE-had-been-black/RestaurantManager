@@ -27,6 +27,10 @@ import static javax.persistence.TemporalType.TIMESTAMP;
         @NamedQuery(
                 name = "getAllBills",
                 query = "SELECT b FROM Bill b"
+        ),
+        @NamedQuery(
+                name = "removeBill",
+                query = "DELETE FROM Bill b WHERE b.itemId=:itemId"
         )
 })
 public class Bill implements Serializable {
