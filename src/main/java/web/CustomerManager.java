@@ -111,13 +111,15 @@ public class CustomerManager implements Serializable {
     /**
      * 添加Customer
      */
-    public void creatCustomer() {
+    public String creatCustomer() {
         try {
             request.createCustomer(newTelNumber, newCustomerName);
             this.newCustomerName = null;
             this.newTelNumber = null;
+            return "创建客户成功";
         } catch (Exception e) {
             logger.warning("Problem creating seat in createSeat.");
+            return "创建客户失败";
         }
     }
 
