@@ -16,6 +16,10 @@ import java.io.Serializable;
         @NamedQuery(
                 name = "getAllItems",
                 query = "SELECT r FROM Repository r"
+        ),
+        @NamedQuery(
+                name="removeItem",
+                query = "DELETE FROM Repository r WHERE r.itemId=:itemId"
         )
 
 })

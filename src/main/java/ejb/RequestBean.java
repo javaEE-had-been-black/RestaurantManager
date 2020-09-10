@@ -129,8 +129,10 @@ public class RequestBean {
      */
     public void removeUser(String userId) {
         try {
-            User user = em.find(User.class, userId);
-            em.remove(user);
+
+            em.createNamedQuery("removeUser")
+                        .setParameter("userId",userId);
+
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -138,8 +140,10 @@ public class RequestBean {
 
     public void removeSeat(String seatId) {
         try {
-            Seat seat = em.find(Seat.class, seatId);
-            em.remove(seat);
+
+            em.createNamedQuery("removeSeat")
+                    .setParameter("seatId",seatId);
+
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -147,8 +151,10 @@ public class RequestBean {
 
     public void removeDish(String dishId) {
         try {
-            Dish dish = em.find(Dish.class, dishId);
-            em.remove(dish);
+
+            em.createNamedQuery("removeDish")
+                    .setParameter("dishId",dishId);
+          
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -156,8 +162,10 @@ public class RequestBean {
 
     public void removeCustomer(Integer customerId) {
         try {
-            Customer customer = em.find(Customer.class, customerId);
-            em.remove(customer);
+
+            em.createNamedQuery("removeCustomer")
+                    .setParameter("customerId",customerId);
+
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -165,8 +173,10 @@ public class RequestBean {
 
     public void removeOrder(Integer orderId) {
         try {
-            Order order = em.find(Order.class, orderId);
-            em.remove(order);
+
+            em.createNamedQuery("removeOrder")
+                    .setParameter("orderId", orderId);
+
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
@@ -174,17 +184,21 @@ public class RequestBean {
 
     public void removeBill(Integer itemId) {
         try {
-            Bill bill = em.find(Bill.class, itemId);
-            em.remove(bill);
+
+            em.createNamedQuery("removeBill")
+                    .setParameter("itemId",itemId);
+
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
 
-    public void removeRepository(Integer itemId) {
+    public void removeItem(Integer itemId) {
         try {
-            Repository repository = em.find(Repository.class, itemId);
-            em.remove(repository);
+
+            em.createNamedQuery("removeItem")
+                    .setParameter("itemId",itemId);
+
         } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }

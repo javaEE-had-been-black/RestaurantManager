@@ -29,6 +29,14 @@ import java.io.Serializable;
         @NamedQuery(
                 name = "getSeatsbyStatus",
                 query = "SELECT s FROM Seat s WHERE s.status=:status"
+        ),
+        @NamedQuery(
+                name="removeSeat",
+                query = "DELETE FROM Seat s WHERE s.seatId=:seatId"
+        ),
+        @NamedQuery(
+                name = "getSeatbySeatId",
+                query = "SELECT s FROM Seat s WHERE s.seatId=:seatId"
         )
 }
 )
