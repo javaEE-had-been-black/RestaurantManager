@@ -195,10 +195,10 @@ public class SeatManager implements Serializable {
         }
     }
 
-    public void changeSeat(){
+    public void changeSeat() {
         Seat seat = request.getSeatbySeatId(searchKey);
-        if(request.getSeatbySeatId(newSeatId)!=null){
-            logInfo="该id已存在";
+        if (request.getSeatbySeatId(newSeatId) != null) {
+            logInfo = "该id已存在";
             return;
         }
         seat.setSeatId(seatId);
@@ -214,14 +214,7 @@ public class SeatManager implements Serializable {
 
 
     public List<Seat> getResultSeats() {
-//        if(resultSeats==null){
-//            return getAllSeats();
-//        }
-        resultSeats = new LinkedList<>();
-        times++;
-        for (int i = 0; i < times; i++) {
-            resultSeats.add(new Seat(i + "", i + "", "空闲", true));
-        }
+
 
         return resultSeats;
     }
@@ -246,7 +239,7 @@ public class SeatManager implements Serializable {
      */
     public List<Seat> getSeatsbyCapacity() {
         try {
-            return request.getSeatsbyCapacity(searchKey);
+            return resultSeats = request.getSeatsbyCapacity(searchKey);
         } catch (Exception e) {
             logger.warning("Problem getSeatsbyCapacity.");
             throw e;
