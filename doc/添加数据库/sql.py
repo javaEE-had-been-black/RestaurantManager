@@ -41,6 +41,11 @@ def execute(db, cursor, tb, sh_name):
                 p += "'" + str(datetime.now().strftime('%Y-%m-%d %H:%M:%S')) + "'"
                 p += ","
                 continue
+            elif i.ctype==2 and i.value%1==0.0:
+                value=int(i.value)
+                p+=str(value)
+                p+=","
+                continue
             p += excel2str(i)
             p += ","
         sql += p[:-1] + ")"
