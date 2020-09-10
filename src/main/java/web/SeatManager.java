@@ -242,18 +242,6 @@ public class SeatManager implements Serializable {
     }
 
     /**
-     * 查询单个Seat状态
-     */
-//    public String getStatus() {
-//        try {
-//            return request.getSeatStatus(seatId);
-//        } catch (Exception e) {
-//            logger.warning("Problem getSeatStatus.");
-//            throw e;
-//        }
-//    }
-
-    /**
      * 根据状态查询所有seat
      */
     public List<Seat> getSeatsbyStatus() {
