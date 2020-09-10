@@ -16,7 +16,6 @@ import java.util.logging.Logger;
  * @author zhao chenyang
  */
 @Stateful
-
 public class RequestBean {
     @PersistenceContext
     private EntityManager em;

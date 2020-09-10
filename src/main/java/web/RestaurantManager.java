@@ -168,6 +168,7 @@ public class RestaurantManager implements Serializable {
      */
     public String login() {
         try {
+
             if (userId == null || password == null) {
                 logInfo = "请输入账号或密码";
                 return "fail";
