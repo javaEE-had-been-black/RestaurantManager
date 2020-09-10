@@ -23,10 +23,20 @@ import java.util.logging.Logger;
 @SessionScoped
 @FacesConfig(version = FacesConfig.Version.JSF_2_3)
 public class SeatManager implements Serializable {
+    public String getCurrentSeatId() {
+        return currentSeatId;
+    }
 
-    private static int times=0;
+    public void setCurrentSeatId(String currentSeatId) {
+        this.currentSeatId = currentSeatId;
+    }
+
+    private String currentSeatId;
+    private static int times = 0;
 
     public SeatManager() {
+        newStatus = "空闲";
+        newIsPrivate = true;
 //        resultSeats=request.getAllSeats();
     }
 
@@ -153,6 +163,7 @@ public class SeatManager implements Serializable {
     public String getCreateSeatInfo() {
         return createSeatInfo;
     }
+
     public void setCreateSeatInfo(String createSeatInfo) {
         this.createSeatInfo = createSeatInfo;
     }
@@ -160,7 +171,7 @@ public class SeatManager implements Serializable {
     public String createSeat() {
         try {
             createSeatInfo = null;
-            if(request.getSeatbySeatId(newSeatId)!=null){
+            if (request.getSeatbySeatId(newSeatId) != null) {
                 createSeatInfo = "座位号冲突";
                 return "fail";
             }
@@ -181,28 +192,28 @@ public class SeatManager implements Serializable {
 //        if(resultSeats==null){
 //            return getAllSeats();
 //        }
-        resultSeats=new LinkedList<>();
+        resultSeats = new LinkedList<>();
         times++;
-        for(int i=0;i<times;i++) {
-            resultSeats.add(new Seat(i+"",i+"","空闲",true));
+        for (int i = 0; i < times; i++) {
+            resultSeats.add(new Seat(i + "", i + "", "空闲", true));
         }
 
         return resultSeats;
     }
 
-    public void getSeatByType(){
+    public void getSeatByType() {
 
-        if(searchKey.equals("")){
-            resultSeats=getAllSeats();
+        if (searchKey.equals("")) {
+            resultSeats = getAllSeats();
             return;
         }
-        if(searchType.equals("桌号")){
-            List<Seat> seats=new LinkedList<>();
+        if (searchType.equals("桌号")) {
+            List<Seat> seats = new LinkedList<>();
             seats.add(getSeatbyId());
-            resultSeats=seats;
-        }else if(searchType.equals("桌型")){
-            resultSeats=getSeatsbyCapacity();
-        }else {
+            resultSeats = seats;
+        } else if (searchType.equals("桌型")) {
+            resultSeats = getSeatsbyCapacity();
+        } else {
             return;
         }
 
@@ -256,6 +267,7 @@ public class SeatManager implements Serializable {
         }
 
     }
+
     /**
      * 删除Seat
      */
@@ -266,35 +278,46 @@ public class SeatManager implements Serializable {
             logger.warning("Problem removing seat in removeSeat.");
         }
     }
+
     /**
      * 点击桌子返回菜单
      */
     private String seatOrderInfo = null;
+
     public String getSeatOrderInfo() {
         return seatOrderInfo;
     }
+
     public void setSeatOrderInfo(String seatOrderInfo) {
         this.seatOrderInfo = seatOrderInfo;
     }
 
-    public List<Dish> getOrderbySeat(String seatId){
-        try{
+    public List<Dish> getOrderbySeat(String seatId) {
+        try {
             seatOrderInfo = null;
-            if(request.getSeatStatus(seatId)!="已点单"){
+            if (request.getSeatStatus(seatId) != "已点单") {
                 seatOrderInfo = "当前座位无订单";
                 return null;
-            }else{
-                return request.getDishesbyOrder(request.getOrderIdbySeatIdandStatus(seatId,"未完成"));
+            } else {
+                return request.getDishesbyOrder(request.getOrderIdbySeatIdandStatus(seatId, "未完成"));
             }
-        }catch(Exception e){
+        } catch (Exception e) {
             throw e;
         }
     }
 
-    public Seat getSeatbyId(){
-        try{
+    public Seat getSeatbyId() {
+        try {
             return request.getSeatbySeatId(searchKey);
-        }catch (Exception e){
+        } catch (Exception e) {
+            throw e;
+        }
+    }
+
+    public Seat getSeatbyId(String searchKey) {
+        try {
+            return request.getSeatbySeatId(searchKey);
+        } catch (Exception e) {
             throw e;
         }
     }

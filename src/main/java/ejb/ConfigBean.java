@@ -18,6 +18,7 @@ public class ConfigBean {
     @EJB
     private RequestBean request;
     private static final Logger logger = Logger.getLogger("java.ejb.ConfigBean");
+
     @PostConstruct
     public void createData() {
         logger.warning("NOW RUNNING!!!!!!!!!!!!!!!");

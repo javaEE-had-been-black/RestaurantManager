@@ -72,18 +72,18 @@ public class RequestBean {
     }
 
     public void createOrder(
-                            Date startTime,
-                            Date endTime,
-                            String orderPrice,
-                            Integer discount,
-                            String comment,
-                            Seat seat,
-                            User user,
-                            Customer customer,
-                            List<Dish> dishes) {
+            Date startTime,
+            Date endTime,
+            String orderPrice,
+            Integer discount,
+            String comment,
+            Seat seat,
+            User user,
+            Customer customer,
+            List<Dish> dishes) {
         try {
             Order order = new Order(startTime, endTime, orderPrice, discount,
-                    comment, seat, user, customer,dishes
+                    comment, seat, user, customer, dishes
             );
             em.persist(order);
         } catch (Exception e) {
@@ -277,16 +277,18 @@ public class RequestBean {
             throw new EJBException(e.getMessage());
         }
     }
-    public Integer getOrderIdbySeatIdandStatus(String seatId,String orderStatus){
-        try{
-            return ((Order)em.createNamedQuery("getOrderIdbySeatIdandStatus")
-                    .setParameter("seatId",seatId)
-                    .setParameter("orderStatus",orderStatus)
+
+    public Integer getOrderIdbySeatIdandStatus(String seatId, String orderStatus) {
+        try {
+            return ((Order) em.createNamedQuery("getOrderIdbySeatIdandStatus")
+                    .setParameter("seatId", seatId)
+                    .setParameter("orderStatus", orderStatus)
                     .getSingleResult()).getOrderId();
-        }catch (Exception e){
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
+
     public List<Seat> getAllSeats() {
         try {
             return em.createNamedQuery("getAllSeats")
@@ -296,13 +298,14 @@ public class RequestBean {
         }
     }
 
-    public Seat getSeatbySeatId(String seatId){
-        try{
-            return em.find(Seat.class,seatId);
-        }catch (Exception e){
+    public Seat getSeatbySeatId(String seatId) {
+        try {
+            return em.find(Seat.class, seatId);
+        } catch (Exception e) {
             throw new EJBException(e.getMessage());
         }
     }
+
     public List<Seat> getSeatsbyStatus(String status) {
         try {
             return em.createNamedQuery("getSeatsbyStatus")

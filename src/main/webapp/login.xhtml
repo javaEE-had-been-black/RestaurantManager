@@ -19,15 +19,14 @@
         <h1 style="text-align: center;color:#666666;">登陆</h1>
         <p style="color: #666666;font-size: larger">手机号:
             <h:inputText id="userNname" type="text" value="#{restaurantManager.userId}"/>
-            <!--                <label id="name_trip">啦啦啦</label>-->
         </p>
-        <!--            这里可以通过value来登录，action-->
+
         <p style="color: #666666;font-size: larger">密&nbsp;&nbsp;&nbsp;码:
             <h:inputSecret id="password" type="password" value="#{restaurantManager.password}"/>
-            <!--                <label id="password_trip"></label>-->
         </p>
         <div style="text-align: center;margin-top: 30px;"></div>
-        <h:commandButton class="button" value="进入"  action="#{restaurantManager.login()}"/>
+        <h:commandButton class="button" value="进入" action="#{restaurantManager.login()}"/>
+        <p style="color: #ff0000">#{restaurantManager.logInfo}</p>
     </h:form>
 </div>
 </body>

@@ -15,57 +15,172 @@
       style="background-repeat:no-repeat;background-size:100% 100%;background-attachment:fixed;">
 
 
-<div class="show">
+<script>
+    var isDisabled = false;
+
+    function showCreateSeat() {
+        var div = document.getElementById("create-seat");
+        div.style.visibility = "visible";
+    }
+
+    function hiddenCreateSeat() {
+        var div = document.getElementById("create-seat");
+        div.style.visibility = "hidden";
+    }
+
+    function showSeat(seatId) {
+        var show = document.getElementById("show-seat");
+        show.style.visibility = "visible";
+        var showInfo = document.getElementById("show-info");
+        showInfo.innerHTML = "餐桌  " + seatId + "  号"
+    }
+
+    function hiddenSeat() {
+        var show = document.getElementById("show-seat");
+        show.style.visibility = "hidden"
+    }
+
+    function hiddenOrder() {
+        var showOrder = document.getElementById("show-order");
+        showOrder.style.visibility = "hidden"
+    }
+
+    function showOrder() {
+        var show = document.getElementById("show-seat");
+        show.style.visibility = "hidden"
+        var showOrder = document.getElementById("show-order");
+        showOrder.style.visibility = "visible"
+    }
+</script>
+
+<div id="create-seat" style="visibility: hidden" class="create-seat">
+    <h:form>
+        <p style="color: #666666;font-size: larger">座位号:
+            <h:inputText type="text" value="#{seatManager.newSeatId}"/>
+        </p>
+
+        <p style="color: #666666;font-size: larger">容&nbsp;&nbsp;&nbsp;量:
+            <h:inputSecret type="text" value="#{seatManager.newCapacity}"/>
+        </p>
+
+        <div style="text-align: center;margin-top: 30px;"></div>
+        <h:commandButton class="operation-button" value="确认" action="#{seatManager.createSeat}"/>
+        <h:commandButton class="operation-button" value="取消" onclick="hiddenCreateSeat()"/>
+        <p style="color: #ff0000">#{restaurantManager.logInfo}</p>
+    </h:form>
+</div>
+
+
+<div id="show-seat" style="visibility: hidden" class="show-seat">
+    <h:form>
+        <p style="color: #666666;font-size: larger" id="show-info">
+        </p>
+        <h:commandButton class="operation-button" value="开桌" onclick="showOrder()"/>
+        <h:commandButton class="operation-button" value="取消" onclick="hiddenSeat()"/>
+    </h:form>
+</div>
+
+
+<!--这里是点单的界面，左右布局-->
+<div id="show-order" style="visibility: hidden" class="show-order">
+
+    <div class="left">
+        <div class="typeTap">
+            <h:form>
+                <h:commandButton class="type-button" value="全部" onclick=""/>
+                <h:commandButton class="type-button" value="汤类" onclick="hiddenSeat()"/>
+                <h:commandButton class="type-button" value="炒菜" onclick=""/>
+                <h:commandButton class="type-button" value="酒水" onclick="hiddenSeat()"/>
+                <h:commandButton class="type-button" value="其他" onclick="hiddenSeat()"/>
+            </h:form>
+        </div>
+
+        <div class="dishes-container">
+            <ui:repeat var="dish" value="#{restaurantManager.getAllDishes()}">
+                <div class="dish-container">
+                    <img src="#{dish.imageUrl}" style="width: 100px;height: 100px;border:2px solid grey"
+                         alt="菜品图片"></img>
+                    <p>
+                        #{dish.dishName}<br/>
+                        价格:￥#{dish.dishPrice}
+                    </p>
+                </div>
+            </ui:repeat>
+        </div>
+    </div>
+
+    <div class="right">
+        <p>桌位号</p>
+
+        <!--        提供一个可操作的删除的按钮，多一列-->
+        <table class="ordered">
+            <tr>
+                <th>菜名</th>
+                <th>单价</th>
+                <th>数目</th>
+                <th>备注</th>
+                <th>小计</th>
+                <th>操作</th>
+            </tr>
+
+            <!--            <ui:repeat var="customer" value="#{customerManager.allCustomers}">-->
+            <!--                <tr>-->
+            <!--                    <td>#{customer.telNumber}</td>-->
+            <!--                    <td>#{customer.customerName}</td>-->
+            <!--                    <td>#{customer.points}</td>-->
+            <!--                    <td>#{customer.addTime}</td>-->
+            <!--                </tr>-->
+            <!--            </ui:repeat>-->
+        </table>
+        <h:form>
+            <h:commandButton class="operation-button" value="返回"/>
+        </h:form>
+    </div>
+
+</div>
+
+
+<div class="show" id="show">
 
     <div id="choice" class="choice">
         <h:form>
             <h:commandButton class="button" value="个人中心" style="text-align: left" action="personIn"/>
-            <br> </br>
-            <br> </br>
             <h:commandButton class="button" value="餐位管理" style="text-align: left" action="seatManage"/>
-            <br> </br>
-            <br> </br>
             <h:commandButton class="button" value="菜谱管理" style="text-align: left" action="dishManage"/>
-            <br> </br>
-            <br> </br>
             <h:commandButton class="button" value="仓库管理" style="text-align: left" action="warehouseManage"/>
-            <br> </br>
-            <br> </br>
             <h:commandButton class="button" value="报表统计" style="text-align: left" action="personIn"/>
-            <br> </br>
-            <br> </br>
             <h:commandButton class="button" value="会员管理" style="text-align: left" action="vipManage"/>
-            <br> </br>
-            <br> </br>
             <h:commandButton class="button" value="员工管理" style="text-align: left" action="personnelManage"/>
         </h:form>
     </div>
 
-
     <div id="seats-content" class="content">
+
         <div id="seatSearch">
             <h:form id="searchForm" action="#{seatManager.getSeatByType()}">
 
                 <h:selectOneMenu value="#{seatManager.status}">
-                    <f:selectItem itemValue="全部" itemLabel="全部" />
-                    <f:selectItem itemValue="空余" itemLabel="空余" />
-                    <f:selectItem itemValue="使用中" itemLabel="使用中" />
+                    <f:selectItem itemValue="全部" itemLabel="全部"/>
+                    <f:selectItem itemValue="空余" itemLabel="空余"/>
+                    <f:selectItem itemValue="使用中" itemLabel="使用中"/>
                 </h:selectOneMenu>
 
                 <h:selectOneMenu value="#{seatManager.searchType}">
-                    <f:selectItem itemValue="桌型" itemLabel="桌型" />
-                    <f:selectItem itemValue="桌号" itemLabel="桌号" />
+                    <f:selectItem itemValue="桌型" itemLabel="桌型"/>
+                    <f:selectItem itemValue="桌号" itemLabel="桌号"/>
                 </h:selectOneMenu>
 
-                <h:inputText id="searchKey" type="text" value="#{seatManager.searchKey}" />
-                <h:commandButton image="resources/images/search.jpg" class="searchButton" />
+                <h:inputText id="searchKey" type="text" value="#{seatManager.searchKey}"/>
+                <h:commandButton image="resources/images/search.jpg" class="searchButton"/>
+
+                <input type="button" class="button" onclick="showCreateSeat()" value="添加餐桌"></input>
 
             </h:form>
         </div>
 
         <div class="seats-container">
             <ui:repeat var="seat" value="#{seatManager.resultSeats}">
-                <div class="seat-container">
+                <div class="seat-container" id="#{seat.seatId}" onclick="showSeat(this.id)">
                     <img src="resources/images/seat.jpg" style="width: 50px;height: 50px" alt="座位"/><br/>
                     <h:outputText value="#{seat.seatId}"/><br/>
                     <h:outputText value="#{seat.capacity}人"/><br/>

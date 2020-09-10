@@ -75,9 +75,104 @@ body {
     height: 150px;
 }
 
-.searchButton{
+.searchButton {
     height: 30px;
     width: 30px;
     border: none;
 }
+
+.create-seat {
+    background-color: white;
+    border: 2px solid gray;
+    position: absolute;
+    left: 600px;
+    width: 37%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.66);
+    box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.5);
+    border-radius: 5px;
+}
+
+.operation-button {
+    width: 100px;
+    height: 30px;
+    background-color: aquamarine;
+    color: white;
+}
+
+.show-seat {
+    position: absolute;
+    left: 600px;
+    background-color: white;
+    border: 2px solid gray;
+    width: 37%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: rgba(255, 255, 255, 0.66);
+    box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.5);
+    border-radius: 5px;
+}
+
+
+.left {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.typeTap {
+    display: flex;
+    flex-direction: row;
+    padding-right: 20px;
+}
+
+
+.dishes-container {
+    padding-bottom: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+.dish-container {
+    margin-left: 20px;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px #666666 solid;
+    border-radius: 3px;
+    width: 120px;
+    height: 150px;
+}
+
+.right {
+    display: flex;
+    padding-top: 20px;
+    flex-direction: column;
+}
+
+.show-order {
+    position: absolute;
+    left: 300px;
+    background-color: white;
+    border: 1px solid gray;
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    height: 700px;
+    background-color: rgba(255, 255, 255, 0.66);
+    box-shadow: 7px 7px 17px rgba(52, 56, 66, 0.5);
+    border-radius: 5px;
+}
+
 

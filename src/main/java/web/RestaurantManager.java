@@ -169,7 +169,8 @@ public class RestaurantManager implements Serializable {
     public String login() {
         try {
             if (userId == null || password == null) {
-                return "请输入账号和密码!!";
+                logInfo = "请输入账号和密码!!";
+                return "fail";
             } else if (password.equals(request.getUserbyUserId(userId).getPassword())) {
                 User user = request.getUserbyUserId(userId);
                 userId = user.getUserId();
@@ -177,9 +178,11 @@ public class RestaurantManager implements Serializable {
                 password = user.getPassword();
                 position = user.getPosition();
                 salary = user.getSalary();
+                logInfo = "";
                 return "success";
             } else {
-                return "密码错误或账号不存在!";
+                logInfo = "密码错误或账号不存在!";
+                return "fail";
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -312,7 +315,7 @@ public class RestaurantManager implements Serializable {
     void startOrder() {
 //        SimpleDateFormat sdf = new SimpleDateFormat();
 //        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
-        this.startTime=new Date();
+        this.startTime = new Date();
     }
 
     /**
@@ -347,7 +350,7 @@ public class RestaurantManager implements Serializable {
     String newOrder(Integer discount, String comment, String seatId, String userId, String customerTelNumber) {
 //        SimpleDateFormat sdf = new SimpleDateFormat();
 //        sdf.applyPattern("yyyy-MM-dd HH:mm:ss");
-        Date endTime=new Date();
+        Date endTime = new Date();
         int orderPrice = 0;
         for (Dish dish : this.dishes) {
             orderPrice += Integer.parseInt(dish.getDishPrice());
@@ -359,10 +362,10 @@ public class RestaurantManager implements Serializable {
             request.createOrder(this.startTime, endTime, String.valueOf(orderPrice), discount, comment, seat, user, customer, dishes);
             this.startTime = null;
             this.dishes.clear();
-            return "success!";
+            return "success";
         } catch (Exception e) {
             logger.warning("Problem in create new Order.");
-            return "fail!";
+            return "fail";
         }
     }
 //-------------------------------
